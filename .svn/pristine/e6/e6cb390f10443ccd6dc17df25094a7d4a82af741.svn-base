@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="col-md-12">
+	<form class="form-horizontal" action="#">
+		<fieldset>
+
+		<!-- Form Name -->
+		<legend>Any ID Resgister</legend>
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="textinput">Account Name</label>  
+		  <div class="col-md-4">
+		  	<input id="AcctNumber" name="AcctNumber" type="text" placeholder="เลขที่บัญชี" class="form-control input-md" required >
+		    
+		  </div>
+		</div>
+
+		<!-- Button -->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="singlebutton"></label>
+		  <div class="col-md-4">
+		    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+		  </div>
+		</div>
+
+		</fieldset>
+	</form>
+	
+	<div class="form-horizontal col-md-6">
+	
+	<fieldset>
+	
+	<!-- Form Name -->
+	<legend>Form Name</legend>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="AcctName">Accout Name</label>  
+	  <div class="col-md-4">
+	  <input id="AcctName" name="AcctName" type="text" placeholder="" class="form-control input-md">
+	    
+	  </div>
+	</div>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="FirstName">First Name</label>  
+	  <div class="col-md-4">
+	  <input id="FirstName" name="FirstName" type="text" placeholder="" class="form-control input-md">
+	    
+	  </div>
+	</div>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="MiddleName">Middle Name</label>  
+	  <div class="col-md-4">
+	  <input id="MiddleName" name="MiddleName" type="text" placeholder="" class="form-control input-md">
+	    
+	  </div>
+	</div>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="LastName">LastName</label>  
+	  <div class="col-md-4">
+	  <input id="LastName" name="LastName" type="text" placeholder="" class="form-control input-md">
+	    
+	  </div>
+	</div>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="DisplayName">Display Name</label>  
+	  <div class="col-md-4">
+	  <input id="DisplayName" name="DisplayName" type="text" placeholder="" class="form-control input-md">
+	    
+	  </div>
+	</div>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="SSN">SSN</label>  
+	  <div class="col-md-4">
+	  <input id="SSN" name="SSN" type="text" placeholder="" class="form-control input-md">
+	    
+	  </div>
+	</div>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="Mobile">Mobile Number</label>  
+	  <div class="col-md-4">
+	  <input id="Mobile" name="Mobile" type="text" placeholder="" class="form-control input-md">
+	    
+	  </div>
+	</div>
+
+	</fieldset>
+	</div>
+
+</div>
+
+	
+</body>
+</html>
