@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+
+    <title>Grid Template for Bootstrap</title>
+
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="datepicker/bootstrap-datepicker.css">
+</head>
+<body>
+
+<div class="col-md-12">
+
+	<!--<form id="form1" class="form-horizontal">-->
+	<div class="form-horizontal">
+		<fieldset>
+
+		<!-- Form Name -->
+		<legend>Any ID Resgister</legend>
+
+		<!-- Text input-->
+		<div class="form-group col-md-6">
+		  <label class="col-md-4 control-label" for="textinput">Account Number</label>  
+		  <div class="col-md-4">
+		  	<input id="AcctNumber" name="AcctNumber" type="text" placeholder="เลขที่บัญชี" class="form-control input-md" required >
+		  </div>
+		</div>
+		
+		
+		<div class="clearfix" /></div>
+		<!-- Button -->
+		<div class="form-group col-md-6">
+		  <label class="col-md-4 control-label" for="singlebutton"></label>
+		  <div class="col-md-4">
+		    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+		  </div>
+		</div>
+
+		</fieldset>
+	</div>
+	<!--</form>-->
+	
+	<div class="form-horizontal col-md-6 data-customer">
+	<fieldset>
+	
+	<!-- Form Name -->
+	<legend>Data CBS</legend>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="AcctName">Accout Name (Thai)</label>  
+	  <div class="col-md-4">
+	  <input id="AcctName" name="AcctName" type="text" placeholder="" class="form-control input-md" value="ปารุท ศรีสวัสดิ์">
+	    
+	  </div>
+	</div>
+	
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="SSN">Citizen ID</label>  
+	  <div class="col-md-4">
+	  	<input id="SSN" name="SSN" type="text" placeholder="" class="form-control input-md" value="170990011233">
+	  </div>
+	  <div class="col-md-4">
+	  	<button id="btn_ssn_ghb_itmx" name="singlebutton" class="btn btn-primary"> >></button>
+	  </div>
+
+
+	</div>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="Mobile">Mobile Number</label>  
+	  <div class="col-md-4">
+	  	<input id="Mobile" name="Mobile" type="text" placeholder="" class="form-control input-md" value="0811111111">
+	  </div>
+	  <div class="col-md-4">
+	  		<button id="btn_mobile_ghb_itmx" name="singlebutton" class="btn btn-primary"> >></button>
+	  </div>
+	</div>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="FirstName">First Name (Thai)</label>  
+	  <div class="col-md-4">
+	  	<input id="FirstNameThai" name="FirstNameThai" type="text" placeholder="" class="form-control input-md" value="ปารุท">
+	  </div>
+	</div>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="MiddleName">Second Name (Thai)</label>  
+	  <div class="col-md-4">
+	  	<input id="MiddleNameThai" name="MiddleNameThai" type="text" placeholder="" class="form-control input-md">
+	  </div>
+	</div>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="LastName">LastName (Thai)</label>  
+	  <div class="col-md-4">
+	  	<input id="LastNameThai" name="LastNameThai" type="text" placeholder="" class="form-control input-md" value="ศรีสวัสดิ์">
+	  </div>
+	</div>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="FirstNameEng">First Name (Eng)</label>  
+	  <div class="col-md-4">
+	  	<input id="FirstNameEng" name="FirstNameEng" type="text" placeholder="" class="form-control input-md" value="parut">
+	  </div>
+	</div>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="MiddleNameEng">Second Name (Eng)</label>  
+	  <div class="col-md-4">
+	  	<input id="MiddleNameEng" name="MiddleNameEng" type="text" placeholder="" class="form-control input-md">
+	  </div>
+	</div>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="LastNameEng">LastName (Eng)</label>  
+	  <div class="col-md-4">
+	  	<input id="LastNameEng" name="LastNameEng" type="text" placeholder="" class="form-control input-md" value="srisawat">
+	  </div>
+	</div>
+
+	</fieldset>
+	</div>
+
+	<!------------ content Right ------------>
+
+	<div class="form-horizontal col-md-6 data-customer">
+	
+	<fieldset>
+	
+	<!-- Form Name -->
+	<legend>Data ITMX</legend>
+	
+	<!-- Select Basic -->
+	<div class="form-group">
+  		<label class="col-md-4 control-label" for="selectbasic">Proxy Type</label>
+		  <div class="col-md-4">
+		    <select id="ITMXProxyType" name="ITMXProxyType" class="form-control">
+				<option value="">--- PLEASE SELECT --</option>
+				<option value="NATID">NATID</option>
+		      	<option value="MSISDN">MSISDN</option>
+		    </select>
+		  </div>
+	</div>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="SSN">Proxy Value</label>  
+	  <div class="col-md-4">
+	  <input id="ITMXProxyValue" name="ITMXProxyValue" type="text" placeholder="" class="form-control input-md">
+	    
+	  </div>
+	</div>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="AcctName">Accout Name (Eng)</label>  
+	  <div class="col-md-4">
+	  <input id="ITMXAcctName" name="ITMXAcctName" type="text" placeholder="" class="form-control input-md">
+	    
+	  </div>
+	</div>
+	
+	
+
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="FirstName">Display Name (Eng/Thai)</label>  
+	  <div class="col-md-4">
+	  	<input id="ITMXDisplayName" name="ITMXDisplayName" type="text" placeholder="" class="form-control input-md">
+	  </div>
+	</div>
+
+	<!-- Multiple Radios -->
+	<div class="form-group">
+		<label class="col-md-4 control-label" for="radios">Account Holder</label>
+		<div class="col-md-4">
+		<div class="radio">
+			<label for="radios-0">
+			<input type="radio" name="radios" class="radios-ah" value="Person"> Person
+			</label>
+		</div>
+	  	<div class="radio">
+	    	<label for="radios-1">
+	      	<input type="radio" name="radios" class="radios-ah" value="Business"> Business
+	    	</label>
+		</div>
+	  	</div>
+	</div>
+
+	<div class="form-group ITMXPerson">
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="ITMXFirstName">Person First Name (ENG)</label>  
+		  <div class="col-md-4">
+		  	<input id="ITMXFirstName" name="ITMXFirstName" type="text" placeholder="" class="form-control input-md">
+		  </div>
+		</div>
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="ITMXSecondName">Person Second Name (ENG)</label>  
+		  <div class="col-md-4">
+		  	<input id="ITMXSecondName" name="ITMXSecondName" type="text" placeholder="" class="form-control input-md">
+		  </div>
+		</div>
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="ITMXLastName">Person Last Name (ENG)</label>  
+		  <div class="col-md-4">
+		  	<input id="ITMXLastName" name="ITMXLastName" type="text" placeholder="" class="form-control input-md">
+		  </div>
+		</div>
+
+	</div>
+
+	<div class="form-group ITMXBusiness">
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="ITMXBusinessName">Business Name (ENG)</label>  
+		  <div class="col-md-4">
+		  	<input id="ITMXBusinessName" name="ITMXBusinessName" type="text" placeholder="" class="form-control input-md">
+		  </div>
+		</div>
+		
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="ITMXBusinessRegisterDate">Business Registered Date</label>  
+		  <div class="col-md-4">
+			<input id="ITMXBusinessRegisterDate" name="ITMXBusinessRegisterDate" class="datepicker form-control input-md" data-date-format="dd/mm/yyyy">
+		  </div>
+		</div>
+	</div>
+	<!-- Button -->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="singlebutton"></label>
+	  <div class="col-md-4">
+	    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+	  </div>
+	</div>
+	</fieldset>
+	</div>
+</div>
+
+	<script type="text/javascript" src="js/jquery-1.9.1.js" ></script>
+	<script type="text/javascript" src="datepicker/bootstrap-datepicker.js"></script>
+	<script type="text/javascript">
+		$('.datepicker').datepicker();
+
+		$('.ITMXPerson , .ITMXBusiness , #btn_ssn_ghb_itmx , #btn_mobile_ghb_itmx , .data-customer').hide();
+		
+		$('.radios-ah').on('click',function(){
+			if($(this).val() == "Person") {
+				$('.ITMXPerson').show();
+				$('.ITMXBusiness').hide();
+			}else{
+				$('.ITMXPerson').hide();
+				$('.ITMXBusiness').show();
+			} ;
+		});
+
+
+		$('#ITMXProxyType').on('change',function(){
+			$('#ITMXProxyValue').val('');
+			if($(this).val() == "NATID") {
+				$('#btn_ssn_ghb_itmx').show();
+				$('#btn_mobile_ghb_itmx').hide();
+			}else{
+				$('#btn_ssn_ghb_itmx').hide();
+				$('#btn_mobile_ghb_itmx').show();
+			} ;
+		})
+
+		$('#btn_ssn_ghb_itmx').on('click',function(){
+			$('#ITMXProxyValue').val($('#SSN').val());
+		});
+
+		$('#btn_mobile_ghb_itmx').on('click',function(){
+			$('#ITMXProxyValue').val($('#Mobile').val());
+		});
+
+		/* Demo */
+		
+		/*
+		$( "#form1" ).submit(function() {
+			$('.data-customer').show();
+		});
+		*/
+
+		$('#singlebutton').on('click',function(){
+			$('.data-customer').show();
+		});
+	</script>
+</body>
+</html>
