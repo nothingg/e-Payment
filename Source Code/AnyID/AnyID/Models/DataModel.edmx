@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DataModel.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="9.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DataModelStoreContainer">
+          <EntitySet Name="B_VIEW_GAM" EntityType="DataModel.Store.B_VIEW_GAM" store:Type="Views" Schema="CUSTOM" />
+        </EntityContainer>
+        <EntityType Name="B_VIEW_GAM">
+          <Key>
+            <PropertyRef Name="ACID" />
+          </Key>
+          <Property Name="ACID" Type="varchar2" MaxLength="11" Nullable="false" />
+          <Property Name="SOL_ID" Type="varchar2" MaxLength="8" />
+          <Property Name="FORACID" Type="varchar2" MaxLength="16" />
+          <Property Name="ACCT_NAME" Type="varchar2" MaxLength="80" />
+          <Property Name="SCHM_CODE" Type="varchar2" MaxLength="5" />
+          <Property Name="CLR_BAL_AMT" Type="number" Precision="20" Scale="4" />
+        </EntityType>
+        <Function Name="B_P_GAM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="CUSTOM" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="DataContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="B_VIEW_GAM" EntityType="DataModel.B_VIEW_GAM" />
+        </EntityContainer>
+        <EntityType Name="B_VIEW_GAM">
+          <Key>
+            <PropertyRef Name="ACID" />
+          </Key>
+          <Property Type="String" Name="ACID" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Type="String" Name="SOL_ID" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FORACID" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ACCT_NAME" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SCHM_CODE" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="CLR_BAL_AMT" Precision="20" Scale="4" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="DataContext">
+          <EntitySetMapping Name="B_VIEW_GAM">
+            <EntityTypeMapping TypeName="DataModel.B_VIEW_GAM">
+              <MappingFragment StoreEntitySet="B_VIEW_GAM">
+                <ScalarProperty Name="CLR_BAL_AMT" ColumnName="CLR_BAL_AMT" />
+                <ScalarProperty Name="SCHM_CODE" ColumnName="SCHM_CODE" />
+                <ScalarProperty Name="ACCT_NAME" ColumnName="ACCT_NAME" />
+                <ScalarProperty Name="FORACID" ColumnName="FORACID" />
+                <ScalarProperty Name="SOL_ID" ColumnName="SOL_ID" />
+                <ScalarProperty Name="ACID" ColumnName="ACID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="DataModel">
+        <EntityTypeShape EntityType="DataModel.B_VIEW_GAM" Width="1.5" PointX="0.75" PointY="0.75" Height="2.1725878906249996" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="DataContext">
+    <EntitySetMapping Name="B_VIEW_GAM">
+      <EntityTypeMapping TypeName="DataModel.B_VIEW_GAM">
+        <MappingFragment StoreEntitySet="B_VIEW_GAM">
+          <ScalarProperty Name="CLR_BAL_AMT" ColumnName="CLR_BAL_AMT" />
+          <ScalarProperty Name="SCHM_CODE" ColumnName="SCHM_CODE" />
+          <ScalarProperty Name="ACCT_NAME" ColumnName="ACCT_NAME" />
+          <ScalarProperty Name="FORACID" ColumnName="FORACID" />
+          <ScalarProperty Name="SOL_ID" ColumnName="SOL_ID" />
+          <ScalarProperty Name="ACID" ColumnName="ACID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
