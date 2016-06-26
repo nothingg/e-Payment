@@ -1,0 +1,33 @@
+2016-06-25 13:47:32,819 [12] ERROR AnyID.Controllers.RegisterController [Index] - The underlying provider failed on Open.
+2016-06-25 13:53:02,081 [14] ERROR AnyID.Controllers.RegisterController [Index] - ORA-12154: TNS:could not resolve the connect identifier specified
+2016-06-25 14:49:04,981 [14] ERROR AnyID.Controllers.RegisterController [Index] - ORA-12170: TNS:Connect timeout occurred
+2016-06-25 14:50:08,359 [58] ERROR AnyID.Controllers.RegisterController [Index] - ORA-12170: TNS:Connect timeout occurred
+2016-06-25 14:53:18,700 [58] ERROR AnyID.Controllers.RegisterController [Index] - ORA-12154: TNS:could not resolve the connect identifier specified
+2016-06-25 14:54:14,791 [58] ERROR AnyID.Controllers.RegisterController [Index] - ORA-12154: TNS:could not resolve the connect identifier specified
+2016-06-25 14:56:20,680 [5] ERROR AnyID.Controllers.RegisterController [Index] - ORA-12154: TNS:could not resolve the connect identifier specified
+2016-06-25 15:00:14,728 [5] ERROR AnyID.Controllers.RegisterController [Index] - ORA-12154: TNS:could not resolve the connect identifier specified
+2016-06-25 15:01:36,104 [57] ERROR AnyID.Controllers.RegisterController [Index] - ORA-12154: TNS:could not resolve the connect identifier specified
+2016-06-25 15:02:47,050 [57] ERROR AnyID.Controllers.RegisterController [Index] - ORA-12154: TNS:could not resolve the connect identifier specified
+2016-06-25 15:03:48,539 [56] ERROR AnyID.Controllers.RegisterController [Index] - ORA-12154: TNS:could not resolve the connect identifier specified
+2016-06-25 15:05:25,375 [5] ERROR AnyID.Controllers.RegisterController [Index] - ORA-12154: TNS:could not resolve the connect identifier specified
+2016-06-25 15:08:42,185 [5] ERROR AnyID.Controllers.RegisterController [Index] - ORA-12154: TNS:could not resolve the connect identifier specified
+2016-06-25 15:09:46,092 [57] ERROR AnyID.Controllers.RegisterController [Index] - ORA-12154: TNS:could not resolve the connect identifier specified
+2016-06-25 15:11:31,536 [56] ERROR AnyID.Controllers.RegisterController [Index] - ORA-12154: TNS:could not resolve the connect identifier specified
+2016-06-25 15:12:55,903 [56] ERROR AnyID.Controllers.RegisterController [Index] - ORA-12154: TNS:could not resolve the connect identifier specified
+2016-06-25 15:15:48,656 [14] ERROR AnyID.Controllers.RegisterController [Index] - ORA-12154: TNS:could not resolve the connect identifier specified
+2016-06-25 15:18:29,213 [57] ERROR AnyID.Controllers.RegisterController [Index] - ORA-12154: TNS:could not resolve the connect identifier specified
+2016-06-25 15:38:49,490 [7] ERROR AnyID.Controllers.RegisterController [InsertNewAccount] - String was not recognized as a valid DateTime.
+2016-06-25 15:49:38,557 [13] ERROR AnyID.Controllers.RegisterController [InsertNewAccount] - String was not recognized as a valid DateTime.
+2016-06-25 15:50:41,625 [16] ERROR AnyID.Controllers.RegisterController [InsertNewAccount] - String was not recognized as a valid DateTime.
+2016-06-25 15:52:46,392 [15] ERROR AnyID.Controllers.RegisterController [InsertNewAccount] - String was not recognized as a valid DateTime.
+2016-06-25 16:23:08,823 [13] ERROR AnyID.Controllers.RegisterController [Index] - Object reference not set to an instance of an object.
+2016-06-25 16:23:29,266 [15] ERROR AnyID.Controllers.RegisterController [Index] - Object reference not set to an instance of an object.
+2016-06-25 16:23:41,930 [13] ERROR AnyID.Controllers.RegisterController [Index] - Object reference not set to an instance of an object.
+2016-06-25 17:46:15,481 [19] ERROR AnyID.Models.RegisterModel [ChkFormatAcct] - Index and length must refer to a location within the string.
+Parameter name: length
+2016-06-25 18:50:24,994 [7] ERROR AnyID.Models.RegisterModel [ChkFormatAcct] - Index and length must refer to a location within the string.
+Parameter name: length
+2016-06-25 19:25:20,692 [12] ERROR AnyID.Models.RegisterModel [ChkFormatAcct] - Index and length must refer to a location within the string.
+Parameter name: length
+2016-06-25 19:27:09,288 [12] ERROR AnyID.Models.RegisterModel [ChkFormatAcct] - Index and length must refer to a location within the string.
+Parameter name: length

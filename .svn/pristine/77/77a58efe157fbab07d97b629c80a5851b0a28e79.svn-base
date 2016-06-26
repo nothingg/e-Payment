@@ -1,0 +1,45 @@
+CREATE OR REPLACE PROCEDURE AnyID_Get_DATA_CBS (  
+    FORACID_IN IN VARCHAR2,
+    OUT_CURSOR    OUT SYS_REFCURSOR)
+        IS
+        BEGIN
+            OPEN OUT_CURSOR FOR
+                 SELECT g.foracid , g.acct_name , g.frez_code , g.acct_cls_flg ,  s.acct_status as acct_status_dormant ,
+                        acct.accountid ,acct.ssn, acct.cust_first_name,  acct.cust_middle_name,acct.cust_last_name , acct.strfield6,acct.MAIDENNAME,acct.preferredname , 
+                       ( select count(*) from tbaadm.aas a where g.acid = a.acid) as count_joint
+                            FROM tbaadm.gam g , crmuser.accounts acct , tbaadm.smt s
+                                WHERE g.cif_id = acct.orgkey AND g.acid = s.acid
+                                AND g.foracid = FORACID_IN
+                                AND g.entity_cre_flg = 'Y'
+                                AND g.del_flg = 'N'
+                                AND g.acct_cls_flg = 'N'
+                                AND g.schm_type = 'SBA'; 
+            END AnyID_Get_DATA_CBS;
+
+CREATE OR REPLACE PROCEDURE AnyID_Get_MOBILE_CBS (  
+    ACCOUNTID_IN IN VARCHAR2,
+    OUT_CURSOR    OUT SYS_REFCURSOR)
+        IS
+        BEGIN
+            OPEN OUT_CURSOR FOR
+                SELECT addressid, accountid , addresscategory , cellno 
+                    FROM crmuser.address 
+                    WHERE accountid = ACCOUNTID_IN;
+        END AnyID_Get_MOBILE_CBS;
+
+
+
+/*  Test  */
+
+CREATE OR REPLACE PROCEDURE B_P_GAM (  
+    FORACID_IN IN VARCHAR2,
+    OUT_CURSOR    OUT SYS_REFCURSOR)
+IS
+BEGIN
+    OPEN OUT_CURSOR FOR
+         SELECT 
+            acid , sol_id , foracid , acct_name , schm_code , clr_bal_amt
+          FROM tbaadm.gam where foracid = FORACID_IN;
+    END B_P_GAM;
+
+    

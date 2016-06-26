@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DataModel.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="9.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DataModelStoreContainer">
+          <EntitySet Name="ANYID_DATA_CBS" EntityType="DataModel.Store.ANYID_DATA_CBS" store:Type="Tables" Schema="CUSTOM" />
+          <EntitySet Name="ANYID_DATA_ITMX" EntityType="DataModel.Store.ANYID_DATA_ITMX" store:Type="Tables" Schema="CUSTOM" />
+          <EntitySet Name="ANYID_MOBILE_CBS" EntityType="DataModel.Store.ANYID_MOBILE_CBS" store:Type="Tables" Schema="CUSTOM" />
+          <EntitySet Name="B_TABLE_ENTITIESVIEW_GAM" EntityType="DataModel.Store.B_TABLE_ENTITIESVIEW_GAM" store:Type="Tables" Schema="CUSTOM" />
+        </EntityContainer>
+        <EntityType Name="ANYID_DATA_CBS">
+          <Key>
+            <PropertyRef Name="FORACID" />
+          </Key>
+          <Property Name="FORACID" Type="varchar2" Nullable="false" MaxLength="16" />
+          <Property Name="ACCT_NAME" Type="varchar2" MaxLength="80" />
+          <Property Name="SSN" Type="varchar2" MaxLength="25" />
+          <Property Name="CUST_FIRST_NAME" Type="varchar2" MaxLength="80" />
+          <Property Name="CUST_MIDDLE_NAME" Type="varchar2" MaxLength="80" />
+          <Property Name="CUST_LAST_NAME" Type="varchar2" MaxLength="80" />
+          <Property Name="STRFIELD6" Type="varchar2" MaxLength="50" />
+          <Property Name="MAIDENNAME" Type="varchar2" MaxLength="50" />
+          <Property Name="PREFERREDNAME" Type="varchar2" MaxLength="50" />
+          <Property Name="FREZ_CODE" Type="varchar2" MaxLength="1" />
+          <Property Name="ACCOUNTID" Type="number" />
+          <Property Name="ACCT_STATUS_DORMANT" Type="varchar2" MaxLength="1" />
+          <Property Name="ACCT_CLS_FLG" Type="varchar2" MaxLength="1" />
+          <Property Name="COUNT_JOINT" Type="number" />
+        </EntityType>
+        <EntityType Name="ANYID_DATA_ITMX">
+          <Key>
+            <PropertyRef Name="ROWIDS" />
+          </Key>
+          <Property Name="ROWIDS" Type="number" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PROXY_TYPE" Type="varchar2" MaxLength="12" />
+          <Property Name="PROXY_VALUE" Type="varchar2" MaxLength="128" />
+          <Property Name="ACCOUNT_TYPE" Type="varchar2" MaxLength="12" />
+          <Property Name="ACCOUNT_VALUE" Type="varchar2" MaxLength="128" />
+          <Property Name="ACCOUNT_NUMBER" Type="varchar2" MaxLength="128" />
+          <Property Name="ACCOUNT_NAME" Type="varchar2" MaxLength="64" />
+          <Property Name="DISPLAY_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="PERSON_FIRSTNAME" Type="varchar2" MaxLength="32" />
+          <Property Name="PERSON_SECONDNAME" Type="varchar2" MaxLength="32" />
+          <Property Name="PERSON_LASTNAME" Type="varchar2" MaxLength="32" />
+          <Property Name="BUSINESS_NAME" Type="varchar2" MaxLength="32" />
+          <Property Name="BUSINESS_REGISTERED_DATE" Type="date" />
+          <Property Name="REGISTRATION_STATUS" Type="varchar2" MaxLength="6" />
+          <Property Name="CREATED_DATE" Type="date" />
+          <Property Name="CREATED_USER" Type="varchar2" MaxLength="20" />
+          <Property Name="FLAG_REGISTER" Type="varchar2" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="ANYID_MOBILE_CBS">
+          <Key>
+            <PropertyRef Name="ADDRESSID" />
+          </Key>
+          <Property Name="ADDRESSID" Type="number" Nullable="false" />
+          <Property Name="ACCOUNTID" Type="number" />
+          <Property Name="ADDRESSCATEGORY" Type="varchar2" MaxLength="100" />
+          <Property Name="CELLNO" Type="varchar2" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="B_TABLE_ENTITIESVIEW_GAM">
+          <Key>
+            <PropertyRef Name="ACID" />
+          </Key>
+          <Property Name="ACID" Type="varchar2" Nullable="false" MaxLength="11" />
+          <Property Name="SOL_ID" Type="varchar2" MaxLength="8" />
+          <Property Name="FORACID" Type="varchar2" MaxLength="16" />
+          <Property Name="ACCT_NAME" Type="varchar2" MaxLength="80" />
+          <Property Name="SCHM_CODE" Type="varchar2" MaxLength="5" />
+          <Property Name="CLR_BAL_AMT" Type="number" Precision="20" Scale="4" />
+        </EntityType>
+        <Function Name="ANYID_GET_DATA_CBS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="CUSTOM">
+          <Parameter Name="FORACID_IN" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="ANYID_GET_MOBILE_CBS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="CUSTOM">
+          <Parameter Name="ACCOUNTID_IN" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="B_P_GAM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="CUSTOM">
+          <Parameter Name="FORACID_IN" Type="varchar2" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="OracleContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ANYID_DATA_CBS" EntityType="DataModel.ANYID_DATA_CBS" />
+          <FunctionImport Name="ANYID_GET_DATA_CBS" EntitySet="ANYID_DATA_CBS" ReturnType="Collection(DataModel.ANYID_DATA_CBS)" >
+          <Parameter Name="FORACID_IN" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="B_P_GAM" EntitySet="B_TABLE_ENTITIESVIEW_GAM" ReturnType="Collection(DataModel.B_TABLE_ENTITIESVIEW_GAM)" >
+          <Parameter Name="FORACID_IN" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="B_TABLE_ENTITIESVIEW_GAM" EntityType="DataModel.B_TABLE_ENTITIESVIEW_GAM" />
+          <EntitySet Name="ANYID_MOBILE_CBS" EntityType="DataModel.ANYID_MOBILE_CBS" />
+          <FunctionImport Name="ANYID_GET_MOBILE_CBS" EntitySet="ANYID_MOBILE_CBS" ReturnType="Collection(DataModel.ANYID_MOBILE_CBS)">
+          <Parameter Name="ACCOUNTID_IN" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="ANYID_DATA_ITMX" EntityType="DataModel.ANYID_DATA_ITMX" />
+        </EntityContainer>
+        <EntityType Name="ANYID_DATA_CBS">
+          <Key>
+            <PropertyRef Name="FORACID" />
+          </Key>
+          <Property Type="String" Name="FORACID" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ACCT_NAME" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SSN" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CUST_FIRST_NAME" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CUST_MIDDLE_NAME" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CUST_LAST_NAME" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="STRFIELD6" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MAIDENNAME" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PREFERREDNAME" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FREZ_CODE" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="COUNT_JOINT" Scale="0" Precision="38" />
+          <Property Type="Decimal" Name="ACCOUNTID" Precision="38" Scale="0" />
+          <Property Type="String" Name="ACCT_STATUS_DORMANT" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ACCT_CLS_FLG" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="B_TABLE_ENTITIESVIEW_GAM">
+          <Key>
+            <PropertyRef Name="ACID" />
+          </Key>
+          <Property Type="String" Name="ACID" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SOL_ID" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FORACID" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ACCT_NAME" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SCHM_CODE" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="CLR_BAL_AMT" Precision="20" Scale="4" />
+        </EntityType>
+        <EntityType Name="ANYID_MOBILE_CBS">
+          <Key>
+            <PropertyRef Name="ADDRESSID" />
+          </Key>
+          <Property Type="Decimal" Name="ADDRESSID" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="ACCOUNTID" Precision="38" Scale="0" />
+          <Property Type="String" Name="ADDRESSCATEGORY" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CELLNO" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ANYID_DATA_ITMX">
+          <Key>
+            <PropertyRef Name="ROWIDS" />
+          </Key>
+          <Property Type="Decimal" Name="ROWIDS" Nullable="false" Precision="38" Scale="0"/>
+          <Property Type="String" Name="PROXY_TYPE" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PROXY_VALUE" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ACCOUNT_TYPE" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ACCOUNT_VALUE" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ACCOUNT_NUMBER" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ACCOUNT_NAME" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DISPLAY_NAME" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PERSON_FIRSTNAME" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PERSON_SECONDNAME" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PERSON_LASTNAME" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="BUSINESS_NAME" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="BUSINESS_REGISTERED_DATE" />
+          <Property Type="String" Name="REGISTRATION_STATUS" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CREATED_DATE" />
+          <Property Type="String" Name="CREATED_USER" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FLAG_REGISTER" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="OracleContext">
+          <EntitySetMapping Name="ANYID_DATA_CBS">
+            <EntityTypeMapping TypeName="DataModel.ANYID_DATA_CBS">
+              <MappingFragment StoreEntitySet="ANYID_DATA_CBS">
+                <ScalarProperty Name="ACCT_CLS_FLG" ColumnName="ACCT_CLS_FLG" />
+                <ScalarProperty Name="ACCT_STATUS_DORMANT" ColumnName="ACCT_STATUS_DORMANT" />
+                <ScalarProperty Name="ACCOUNTID" ColumnName="ACCOUNTID" />
+                <ScalarProperty Name="COUNT_JOINT" ColumnName="COUNT_JOINT" />
+                <ScalarProperty Name="FREZ_CODE" ColumnName="FREZ_CODE" />
+                <ScalarProperty Name="PREFERREDNAME" ColumnName="PREFERREDNAME" />
+                <ScalarProperty Name="MAIDENNAME" ColumnName="MAIDENNAME" />
+                <ScalarProperty Name="STRFIELD6" ColumnName="STRFIELD6" />
+                <ScalarProperty Name="CUST_LAST_NAME" ColumnName="CUST_LAST_NAME" />
+                <ScalarProperty Name="CUST_MIDDLE_NAME" ColumnName="CUST_MIDDLE_NAME" />
+                <ScalarProperty Name="CUST_FIRST_NAME" ColumnName="CUST_FIRST_NAME" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="ACCT_NAME" ColumnName="ACCT_NAME" />
+                <ScalarProperty Name="FORACID" ColumnName="FORACID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ANYID_GET_DATA_CBS" FunctionName="DataModel.Store.ANYID_GET_DATA_CBS" />
+          <FunctionImportMapping FunctionImportName="B_P_GAM" FunctionName="DataModel.Store.B_P_GAM" />
+          <EntitySetMapping Name="B_TABLE_ENTITIESVIEW_GAM">
+            <EntityTypeMapping TypeName="DataModel.B_TABLE_ENTITIESVIEW_GAM">
+              <MappingFragment StoreEntitySet="B_TABLE_ENTITIESVIEW_GAM">
+                <ScalarProperty Name="CLR_BAL_AMT" ColumnName="CLR_BAL_AMT" />
+                <ScalarProperty Name="SCHM_CODE" ColumnName="SCHM_CODE" />
+                <ScalarProperty Name="ACCT_NAME" ColumnName="ACCT_NAME" />
+                <ScalarProperty Name="FORACID" ColumnName="FORACID" />
+                <ScalarProperty Name="SOL_ID" ColumnName="SOL_ID" />
+                <ScalarProperty Name="ACID" ColumnName="ACID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ANYID_MOBILE_CBS">
+            <EntityTypeMapping TypeName="DataModel.ANYID_MOBILE_CBS">
+              <MappingFragment StoreEntitySet="ANYID_MOBILE_CBS">
+                <ScalarProperty Name="CELLNO" ColumnName="CELLNO" />
+                <ScalarProperty Name="ADDRESSCATEGORY" ColumnName="ADDRESSCATEGORY" />
+                <ScalarProperty Name="ACCOUNTID" ColumnName="ACCOUNTID" />
+                <ScalarProperty Name="ADDRESSID" ColumnName="ADDRESSID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ANYID_GET_MOBILE_CBS" FunctionName="DataModel.Store.ANYID_GET_MOBILE_CBS" />
+          <EntitySetMapping Name="ANYID_DATA_ITMX">
+            <EntityTypeMapping TypeName="DataModel.ANYID_DATA_ITMX">
+              <MappingFragment StoreEntitySet="ANYID_DATA_ITMX">
+                <ScalarProperty Name="FLAG_REGISTER" ColumnName="FLAG_REGISTER" />
+                <ScalarProperty Name="CREATED_USER" ColumnName="CREATED_USER" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="REGISTRATION_STATUS" ColumnName="REGISTRATION_STATUS" />
+                <ScalarProperty Name="BUSINESS_REGISTERED_DATE" ColumnName="BUSINESS_REGISTERED_DATE" />
+                <ScalarProperty Name="BUSINESS_NAME" ColumnName="BUSINESS_NAME" />
+                <ScalarProperty Name="PERSON_LASTNAME" ColumnName="PERSON_LASTNAME" />
+                <ScalarProperty Name="PERSON_SECONDNAME" ColumnName="PERSON_SECONDNAME" />
+                <ScalarProperty Name="PERSON_FIRSTNAME" ColumnName="PERSON_FIRSTNAME" />
+                <ScalarProperty Name="DISPLAY_NAME" ColumnName="DISPLAY_NAME" />
+                <ScalarProperty Name="ACCOUNT_NAME" ColumnName="ACCOUNT_NAME" />
+                <ScalarProperty Name="ACCOUNT_NUMBER" ColumnName="ACCOUNT_NUMBER" />
+                <ScalarProperty Name="ACCOUNT_VALUE" ColumnName="ACCOUNT_VALUE" />
+                <ScalarProperty Name="ACCOUNT_TYPE" ColumnName="ACCOUNT_TYPE" />
+                <ScalarProperty Name="PROXY_VALUE" ColumnName="PROXY_VALUE" />
+                <ScalarProperty Name="PROXY_TYPE" ColumnName="PROXY_TYPE" />
+                <ScalarProperty Name="ROWIDS" ColumnName="ROWIDS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="DataModel">
+        <EntityTypeShape EntityType="DataModel.ANYID_DATA_CBS" Width="2.125" PointX="0.75" PointY="0.75" Height="3.7109993489583326" />
+        <EntityTypeShape EntityType="DataModel.B_TABLE_ENTITIESVIEW_GAM" Width="1.5" PointX="3.375" PointY="0.75" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="DataModel.ANYID_MOBILE_CBS" Width="2.25" PointX="5.125" PointY="0.875" Height="1.7879850260416657" />
+        <EntityTypeShape EntityType="DataModel.ANYID_DATA_ITMX" Width="2.125" PointX="7.625" PointY="0.875" Height="4.2879036458333317" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

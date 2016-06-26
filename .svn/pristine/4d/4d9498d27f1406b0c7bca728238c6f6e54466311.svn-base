@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataModel.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="9.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="DataModelStoreContainer">
+    <EntitySet Name="ANYID_DATA_CBS" EntityType="DataModel.Store.ANYID_DATA_CBS" store:Type="Tables" Schema="CUSTOM" />
+    <EntitySet Name="ANYID_DATA_ITMX" EntityType="DataModel.Store.ANYID_DATA_ITMX" store:Type="Tables" Schema="CUSTOM" />
+    <EntitySet Name="ANYID_LOGS" EntityType="DataModel.Store.ANYID_LOGS" store:Type="Tables" Schema="CUSTOM" />
+    <EntitySet Name="ANYID_MOBILE_CBS" EntityType="DataModel.Store.ANYID_MOBILE_CBS" store:Type="Tables" Schema="CUSTOM" />
+    <EntitySet Name="B_TABLE_ENTITIESVIEW_GAM" EntityType="DataModel.Store.B_TABLE_ENTITIESVIEW_GAM" store:Type="Tables" Schema="CUSTOM" />
+  </EntityContainer>
+  <EntityType Name="ANYID_DATA_CBS">
+    <Key>
+      <PropertyRef Name="FORACID" />
+    </Key>
+    <Property Name="FORACID" Type="varchar2" Nullable="false" MaxLength="16" />
+    <Property Name="ACCT_NAME" Type="varchar2" MaxLength="80" />
+    <Property Name="SSN" Type="varchar2" MaxLength="25" />
+    <Property Name="CUST_FIRST_NAME" Type="varchar2" MaxLength="80" />
+    <Property Name="CUST_MIDDLE_NAME" Type="varchar2" MaxLength="80" />
+    <Property Name="CUST_LAST_NAME" Type="varchar2" MaxLength="80" />
+    <Property Name="STRFIELD6" Type="varchar2" MaxLength="50" />
+    <Property Name="MAIDENNAME" Type="varchar2" MaxLength="50" />
+    <Property Name="PREFERREDNAME" Type="varchar2" MaxLength="50" />
+    <Property Name="FREZ_CODE" Type="varchar2" MaxLength="1" />
+    <Property Name="ACCOUNTID" Type="number" />
+    <Property Name="ACCT_STATUS_DORMANT" Type="varchar2" MaxLength="1" />
+    <Property Name="ACCT_CLS_FLG" Type="varchar2" MaxLength="1" />
+    <Property Name="COUNT_JOINT" Type="number" />
+  </EntityType>
+  <EntityType Name="ANYID_DATA_ITMX">
+    <Key>
+      <PropertyRef Name="ROWIDS" />
+    </Key>
+    <Property Name="ROWIDS" Type="number" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PROXY_TYPE" Type="varchar2" MaxLength="12" />
+    <Property Name="PROXY_VALUE" Type="varchar2" MaxLength="128" />
+    <Property Name="ACCOUNT_TYPE" Type="varchar2" MaxLength="12" />
+    <Property Name="ACCOUNT_VALUE" Type="varchar2" MaxLength="128" />
+    <Property Name="ACCOUNT_NUMBER" Type="varchar2" MaxLength="128" />
+    <Property Name="ACCOUNT_NAME" Type="varchar2" MaxLength="64" />
+    <Property Name="DISPLAY_NAME" Type="varchar2" MaxLength="50" />
+    <Property Name="PERSON_FIRSTNAME" Type="varchar2" MaxLength="32" />
+    <Property Name="PERSON_SECONDNAME" Type="varchar2" MaxLength="32" />
+    <Property Name="PERSON_LASTNAME" Type="varchar2" MaxLength="32" />
+    <Property Name="BUSINESS_NAME" Type="varchar2" MaxLength="32" />
+    <Property Name="BUSINESS_REGISTERED_DATE" Type="date" />
+    <Property Name="REGISTRATION_STATUS" Type="varchar2" MaxLength="6" />
+    <Property Name="CREATED_DATE" Type="date" />
+    <Property Name="CREATED_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="FLAG_REGISTER" Type="varchar2" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="ANYID_LOGS">
+    <Key>
+      <PropertyRef Name="LOG_ID" />
+    </Key>
+    <Property Name="LOG_ID" Type="number" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LOG_ACTION" Type="varchar2" MaxLength="10" />
+    <Property Name="LOG_DATA" Type="clob" />
+    <Property Name="CREATED_DATE" Type="date" />
+    <Property Name="CREATED_USER" Type="varchar2" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="ANYID_MOBILE_CBS">
+    <Key>
+      <PropertyRef Name="ADDRESSID" />
+    </Key>
+    <Property Name="ADDRESSID" Type="number" Nullable="false" />
+    <Property Name="ACCOUNTID" Type="number" />
+    <Property Name="ADDRESSCATEGORY" Type="varchar2" MaxLength="100" />
+    <Property Name="CELLNO" Type="varchar2" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="B_TABLE_ENTITIESVIEW_GAM">
+    <Key>
+      <PropertyRef Name="ACID" />
+    </Key>
+    <Property Name="ACID" Type="varchar2" Nullable="false" MaxLength="11" />
+    <Property Name="SOL_ID" Type="varchar2" MaxLength="8" />
+    <Property Name="FORACID" Type="varchar2" MaxLength="16" />
+    <Property Name="ACCT_NAME" Type="varchar2" MaxLength="80" />
+    <Property Name="SCHM_CODE" Type="varchar2" MaxLength="5" />
+    <Property Name="CLR_BAL_AMT" Type="number" Precision="20" Scale="4" />
+  </EntityType>
+  <Function Name="ANYID_GET_DATA_CBS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="CUSTOM">
+    <Parameter Name="FORACID_IN" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="ANYID_GET_MOBILE_CBS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="CUSTOM">
+    <Parameter Name="ACCOUNTID_IN" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="B_P_GAM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="CUSTOM">
+    <Parameter Name="FORACID_IN" Type="varchar2" Mode="In" />
+  </Function>
+</Schema>

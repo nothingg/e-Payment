@@ -1,0 +1,80 @@
+﻿@model AnyID.Models.ANYID_DATA_CBS
+
+@{
+    ViewBag.Title = "Index3";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index3</h2>
+
+<fieldset>
+    <legend>ANYID_DATA_CBS</legend>
+    
+    <div class="display-label">
+        @Model.ACCT_NAME
+         @Html.DisplayNameFor(model => model.ACCT_NAME)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ACCT_NAME)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SSN)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SSN)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CUST_FIRST_NAME)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CUST_FIRST_NAME)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CUST_MIDDLE_NAME)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CUST_MIDDLE_NAME)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CUST_LAST_NAME)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CUST_LAST_NAME)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.STRFIELD6)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.STRFIELD6)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MAIDENNAME)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MAIDENNAME)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PREFERREDNAME)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PREFERREDNAME)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CELLNO)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CELLNO)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.FORACID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

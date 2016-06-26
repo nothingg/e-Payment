@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form1" })) { 
+    <input id="AcctNumber" name="AcctNumber" type="text" placeholder="เลขที่บัญชี" class="form-control input-md" >
+    <input type="submit" value="ค้นหา" />
+}

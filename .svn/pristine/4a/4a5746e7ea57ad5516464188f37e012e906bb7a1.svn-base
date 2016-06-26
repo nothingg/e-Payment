@@ -1,0 +1,29 @@
+drop table AnyID_Data_CBS;
+
+create table AnyID_Data_CBS (
+    FORACID VARCHAR2 (16 Char)  PRIMARY KEY  not null ,
+    ACCT_NAME  VARCHAR2 (80 Char),
+    SSN  VARCHAR2 (25 Char),        
+    CUST_FIRST_NAME VARCHAR2 (80 Char)  ,      
+    CUST_MIDDLE_NAME    VARCHAR2 (80 Char)    ,    
+    CUST_LAST_NAME  VARCHAR2 (80 Char)    ,    
+    STRFIELD6   VARCHAR2 (50 Char)        ,
+    MAIDENNAME   VARCHAR2 (50 Char)        ,
+    PREFERREDNAME    VARCHAR2 (50 Char) ,
+    FREZ_CODE    VARCHAR2 (1 char),
+    ACCOUNTID    NUMBER (38) ,        
+    ACCT_STATUS  VARCHAR2 (1 char),
+    COUNT_JOINT number     
+);
+
+/***** Test ******/
+drop table B_Table_EntitiesVIEW_GAM;
+
+create table B_Table_EntitiesVIEW_GAM  (
+    ACID VARCHAR2 (11 Char) PRIMARY KEY not null,
+    SOL_ID VARCHAR2 (8 Char),
+    FORACID VARCHAR2 (16 Char),
+    ACCT_NAME VARCHAR2 (80 Char),
+    SCHM_CODE VARCHAR2 (5 Char),
+    CLR_BAL_AMT NUMBER (20,4) 
+);      

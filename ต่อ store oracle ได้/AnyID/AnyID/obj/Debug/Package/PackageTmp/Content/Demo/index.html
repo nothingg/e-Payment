@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+
+    <title>AnyID Register</title>
+
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="datepicker/bootstrap-datepicker.css">
+</head>
+<body>
+
+<div class="col-md-12">
+
+	<!--<form id="form1" class="form-horizontal">-->
+	<div class="form-horizontal">
+		<fieldset>
+
+		<!-- Form Name -->
+		<legend>Any ID Resgister</legend>
+
+		<!-- Text input-->
+		<div class="form-group col-md-6">
+		  <label class="col-md-4 text-left" for="textinput">Account Number</label>  
+		  <div class="col-md-4">
+		  	<input id="AcctNumber" name="AcctNumber" type="text" placeholder="เลขที่บัญชี" class="form-control input-md" required >
+		  </div>
+		</div>
+		
+		
+		<div class="clearfix" /></div>
+		<!-- Button -->
+		<div class="form-group col-md-6">
+		  <label class="col-md-4 control-label" for="singlebutton"></label>
+		  <div class="col-md-4">
+		    <button id="singlebutton" name="singlebutton" class="btn btn-primary">ค้นหา</button>
+		  </div>
+		</div>
+
+		</fieldset>
+	</div>
+	<!--</form>-->
+	
+	<div class="form-horizontal col-md-6 data-customer">
+	<fieldset>
+	
+	<!-- Form Name -->
+	<legend>Data CBS</legend>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 text-left" for="AcctNameThai">ชื่อบัญชี</label>  
+	  <div class="col-md-4">
+	  <input id="AcctNameThai" name="AcctNameThai" type="text" placeholder="" class="form-control input-md" value="ปารุท ศรีสวัสดิ์">
+	    
+	  </div>
+	</div>
+	
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 text-left" for="FullNameThai">ชื่อเจ้าของบัญชี</label>  
+	  <div class="col-md-4">
+	  	<input id="FullNameThai" name="FullNameThai" type="text" placeholder="" class="form-control input-md" value="ปารุท ศรีสวัสดิ์">
+	  </div>
+	  
+	</div>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 text-left" for="AcctName">ชื่อบัญชี (ENG)</label>  
+	  <div class="col-md-4">
+	  	<input id="AcctNameEng" name="AcctNameEng" type="text" placeholder="" class="form-control input-md" value="">
+	  </div>
+	  <div class="col-md-4">
+	  		<button id="btn_AcctNameEngPerson_ghb_itmx" name="singlebutton" class="btn btn-primary"> ย้าย</button>
+	  		<button id="btn_AcctNameEngBusiness_ghb_itmx" name="singlebutton" class="btn btn-primary"> ย้าย</button>
+	  </div>
+	</div>
+	
+	<input id="FirstNameEng" name="FirstNameEng" type="hidden" value="parut">
+	<input id="MiddleNameEng" name="MiddleNameEng" type="hidden" value="">
+	<input id="LastNameEng" name="LastNameEng" type="hidden" value="srisawat">
+	
+
+	
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 text-left" for="SSN">หมายเลขบัตรประชาชน</label>  
+	  <div class="col-md-4">
+	  	<input id="SSN" name="SSN" type="text" placeholder="" class="form-control input-md" value="170990011233">
+	  </div>
+	 
+
+
+	</div>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 text-left" for="Mobile">เบอร์โทรศัพท์เคลื่อนที่</label>  
+	  <div class="col-md-4">
+	  	<input id="Mobile" name="Mobile" type="text" placeholder="" class="form-control input-md" value="0811111111">
+	  </div>
+	 
+	</div>
+	
+	
+
+	</fieldset>
+	</div>
+
+	<!------------ content Right ------------>
+
+	<div class="form-horizontal col-md-6 data-customer">
+	
+	<fieldset>
+	
+	<!-- Form Name -->
+	<legend>Data ITMX</legend>
+	
+	<!-- Select Basic -->
+	<div class="form-group">
+  		<label class="col-md-4 text-left" for="selectbasic">Proxy Type</label>
+		  <div class="col-md-4">
+		    <select id="ITMXProxyType" name="ITMXProxyType" class="form-control">
+				<option value="">--- PLEASE SELECT --</option>
+				<option value="NATID">ลงทะเบียนด้วยเลขบัตรประชาชน(NATID)</option>
+		      	<option value="MSISDN">ลงทะเบียนด้วยเบอร์มือถือ(MSISDN)</option>
+		    </select>
+		  </div>
+	</div>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 text-left" for="SSN">Proxy Value</label>  
+	  <div class="col-md-4">
+	  <input id="ITMXProxyValue" name="ITMXProxyValue" type="text" placeholder="" class="form-control input-md">
+	    
+	  </div>
+	</div>
+	
+
+	<!-- Multiple Radios -->
+	<div class="form-group">
+		<label class="col-md-4 text-left" for="radios">Account Holder</label>
+		<div class="col-md-4">
+		<div class="radio">
+			<label for="radios-0">
+			<input type="radio" name="AcctHolder" class="radios-ah" value="Person"> Person
+			</label>
+		</div>
+	  	<div class="radio">
+	    	<label for="radios-1">
+	      	<input type="radio" name="AcctHolder" class="radios-ah" value="Business"> Business
+	    	</label>
+		</div>
+	  	</div>
+	</div>
+
+	<div class="ITMXPerson">
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 text-left" for="ITMXFirstName">Person First Name (ENG)</label>  
+		  <div class="col-md-4">
+		  	<input id="ITMXFirstName" name="ITMXFirstName" type="text" placeholder="ข้อมูลเป็นภาษาอังกฤษ" class="form-control input-md">
+		  </div>
+		</div>
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 text-left" style="padding-right: 0px;"  for="ITMXSecondName">Person Second Name (ENG)</label>  
+		  <div class="col-md-4">
+		  	<input id="ITMXSecondName" name="ITMXSecondName" type="text" placeholder="ข้อมูลเป็นภาษาอังกฤษ" class="form-control input-md">
+		  </div>
+		</div>
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 text-left" for="ITMXLastName">Person Last Name (ENG)</label>  
+		  <div class="col-md-4">
+		  	<input id="ITMXLastName" name="ITMXLastName" type="text" placeholder="ข้อมูลเป็นภาษาอังกฤษ" class="form-control input-md">
+		  </div>
+		</div>
+
+	</div>
+
+	<div class="ITMXBusiness">
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 text-left" for="ITMXBusinessName">Business Name (ENG)</label>  
+		  <div class="col-md-4">
+		  	<input id="ITMXBusinessName" name="ITMXBusinessName" type="text" placeholder="ข้อมูลเป็นภาษาอังกฤษ" class="form-control input-md">
+		  </div>
+		</div>
+		
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 text-left" for="ITMXBusinessRegisterDate">Business Registered Date</label>  
+		  <div class="col-md-4">
+			<input id="ITMXBusinessRegisterDate" name="ITMXBusinessRegisterDate" class="datepicker form-control input-md" data-date-format="dd/mm/yyyy">
+		  </div>
+		</div>
+	</div>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 text-left" for="AcctName">Accout Name (Eng)</label>  
+	  <div class="col-md-4">
+	  <input id="ITMXAcctName" name="ITMXAcctName" type="text" placeholder="ข้อมูลเป็นภาษาอังกฤษ" class="form-control input-md">
+	    
+	  </div>
+	</div>
+	
+	
+	<!-- Select Basic -->
+	<div class="form-group">
+  		<label class="col-md-4 text-left" for="ITMXDisplayNameL">Display Name</label>
+		  <div class="col-md-4">
+		    <select id="ITMXDisplayNameL" name="ITMXDisplayNameL" class="form-control">
+				<option value="">--- PLEASE SELECT --</option>
+				<option value="English">English</option>
+		      	<option value="Thai">Thai</option>
+		    </select>
+		  </div>
+	</div>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 text-left" for="ITMXDisplayName"></label>
+	  <div class="col-md-4">
+	  	<input id="ITMXDisplayName" name="ITMXDisplayName" type="text" placeholder="" class="form-control input-md">
+	  </div>
+	</div>
+
+	<!-- Button -->
+	<div class="form-group">
+	  <label class="col-md-4 text-left" for="singlebutton"></label>
+	  <div class="col-md-4">
+	    <button id="senddata" name="senddata" class="btn btn-primary">ส่งข้อมูล</button>
+	  </div>
+	</div>
+	</fieldset>
+	</div>
+</div>
+
+	<script type="text/javascript" src="js/jquery-1.9.1.js" ></script>
+	<script type="text/javascript" src="datepicker/bootstrap-datepicker.js"></script>
+	<script type="text/javascript">
+		$('.datepicker').datepicker();
+
+		$('.ITMXPerson , .ITMXBusiness , .data-customer , .data-customer button').hide();
+		
+		//$('#btn_AcctNameEng_ghb_itmx').show();
+
+		
+		
+		/********************** Block Left *****************************/
+
+		$('#ITMXProxyType').on('change',function(){
+			$('#ITMXProxyValue').val('');
+			if($(this).val() == "NATID") {
+				$('#ITMXProxyValue').val($('#SSN').val());
+			}else if($(this).val() == "MSISDN"){
+				$('#ITMXProxyValue').val($('#Mobile').val());
+			}else{
+				$('#ITMXProxyValue').val('');
+				$('#btn_ssn_ghb_itmx').hide();
+				$('#btn_mobile_ghb_itmx').hide();
+			} ;
+		})
+
+		var AcctNameEng = $('#FirstNameEng').val() + ' ' + $('#MiddleNameEng').val() + ' ' + $('#LastNameEng').val();
+		$('#AcctNameEng').val(AcctNameEng);
+
+		$('#btn_FullNameThai_ghb_itmx').on('click',function(){
+			$('#ITMXDisplayName').val($('#FullNameThai').val());
+		});
+
+		$('#btn_AcctNameEngPerson_ghb_itmx').on('click',function(){
+			$('#ITMXAcctName').val($('#AcctNameEng').val());
+			$('#ITMXFirstName').val($('#FirstNameEng').val());
+			$('#ITMXSecondName').val($('#MiddleNameEng').val());
+			$('#ITMXLastName').val($('#LastNameEng').val());
+		});
+		$('#btn_AcctNameEngBusiness_ghb_itmx').on('click',function(){
+			$('#ITMXAcctName').val($('#AcctNameEng').val());
+			$('#ITMXBusinessName').val($('#AcctNameEng').val());
+		});	
+
+		/********************** Block Right *****************************/
+
+		$('#ITMXDisplayNameL').on('change',function(){
+			$('#ITMXDisplayName').val('');
+			if($(this).val() == "English") {
+				$('#ITMXDisplayName').val($('#AcctNameEng').val());
+			}else if($(this).val() == "Thai"){
+				$('#ITMXDisplayName').val($('#FullNameThai').val());
+			}else{
+				$('#ITMXDisplayName').val('');
+			} ;
+		});
+
+		$('.radios-ah').on('click',function(){
+			$('#senddata').show();
+			if($(this).val() == "Person") {
+				$('.ITMXPerson').show();
+				$('.ITMXBusiness').hide();
+
+				$('#btn_AcctNameEngPerson_ghb_itmx').show();
+				$('#btn_AcctNameEngBusiness_ghb_itmx').hide();
+				
+
+				$('#ITMXBusinessName').val('');
+				$('#ITMXBusinessRegisterDate').val('');
+			}else if($(this).val() == "Business"){
+				$('.ITMXPerson').hide();
+				$('.ITMXBusiness').show();
+
+				$('#btn_AcctNameEngPerson_ghb_itmx').hide();
+				$('#btn_AcctNameEngBusiness_ghb_itmx').show();
+
+				$('#ITMXFirstName').val('');
+				$('#ITMXSecondName').val('');
+				$('#ITMXLastName').val('');
+
+			}else{
+				$('.ITMXPerson').hide();
+				$('.ITMXBusiness').hide();
+			} ;
+		});
+
+		/* Demo */
+		
+		/*
+		$( "#form1" ).submit(function() {
+			$('.data-customer').show();
+		});
+		*/
+
+		$('#singlebutton').on('click',function(){
+			$('.data-customer').show();
+		});
+	</script>
+</body>
+</html>

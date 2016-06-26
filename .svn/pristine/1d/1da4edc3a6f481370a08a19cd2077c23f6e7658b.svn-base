@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="OracleContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ANYID_DATA_CBS" EntityType="DataModel.ANYID_DATA_CBS" />
+    <FunctionImport Name="ANYID_GET_DATA_CBS" EntitySet="ANYID_DATA_CBS" ReturnType="Collection(DataModel.ANYID_DATA_CBS)" />
+    <FunctionImport Name="B_P_GAM" EntitySet="B_TABLE_ENTITIESVIEW_GAM" ReturnType="Collection(DataModel.B_TABLE_ENTITIESVIEW_GAM)" />
+    <EntitySet Name="B_TABLE_ENTITIESVIEW_GAM" EntityType="DataModel.B_TABLE_ENTITIESVIEW_GAM" />
+  </EntityContainer>
+  <EntityType Name="ANYID_DATA_CBS">
+    <Key>
+      <PropertyRef Name="FORACID" />
+    </Key>
+    <Property Type="String" Name="FORACID" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ACCT_NAME" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SSN" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CUST_FIRST_NAME" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CUST_MIDDLE_NAME" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CUST_LAST_NAME" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="STRFIELD6" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MAIDENNAME" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PREFERREDNAME" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CELLNO" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="B_TABLE_ENTITIESVIEW_GAM">
+    <Key>
+      <PropertyRef Name="ACID" />
+    </Key>
+    <Property Type="String" Name="ACID" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SOL_ID" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FORACID" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ACCT_NAME" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SCHM_CODE" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="CLR_BAL_AMT" Precision="20" Scale="4" />
+  </EntityType>
+</Schema>

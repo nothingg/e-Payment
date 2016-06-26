@@ -1,0 +1,155 @@
+﻿@model AnyID.Models.ANYID_DATA_CBS
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form1", @class = "form-horizontal" }))
+    { 
+    <div class="form-horizontal">
+		<fieldset>
+
+		<!-- Form Name -->
+		<legend>Any ID Resgister</legend>
+
+		<!-- Text input-->
+		<div class="form-group col-md-6">
+		  <label class="col-md-4 text-left" for="textinput">Account Number</label>  
+		  <div class="col-md-4">
+		  	<input id="AcctNumber" name="AcctNumber" type="text" placeholder="เลขที่บัญชี" class="form-control input-md" value="@ViewBag.AccountNumber">
+		  </div>
+		</div>
+		
+		
+		<div class="clearfix"></div>
+		<!-- Button -->
+		<div class="form-group col-md-6">
+		  <label class="col-md-4 control-label" for="singlebutton"></label>
+		  <div class="col-md-4">
+		    <button id="singlebutton" name="singlebutton" class="btn btn-primary">ค้นหา</button>
+		  </div>
+		</div>
+
+		</fieldset>
+	</div>
+    }
+	
+
+    @if (IsPost && Model != null)
+    {
+        <!------------ content Left ------------>
+	<div class="form-horizontal col-md-6 data-customer">
+		<fieldset>
+		
+		<!-- Form Name -->
+		<legend>CBS Data</legend>
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 text-left" for="AcctNameThai">ชื่อบัญชี</label>  
+		  <div class="col-md-5">
+		  	<input id="AcctNameThai" name="AcctNameThai" type="text" placeholder="" class="form-control input-md" value="@Model.ACCT_NAME" readonly>
+		  </div>
+		  <div class="clearfix" ></div>
+		</div>
+		
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 text-left" for="FullNameThai">ชื่อเจ้าของบัญชี</label>  
+		  <div class="col-md-5">
+		  	<input id="FullNameThai" name="FullNameThai" type="text" placeholder="" class="form-control input-md" value="" readonly>
+		  </div>
+			<div class="clearfix" ></div>  
+		</div>
+		
+
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 text-left" for="AcctName">ชื่อบัญชี (ENG)</label>  
+		  <div class="col-md-5">
+		  	<input id="AcctNameEng" name="AcctNameEng" type="text" placeholder="" class="form-control input-md" value="" readonly>
+		  </div>
+		  <div class="col-md-2">
+		  		<button id="btn_AcctNameEngPerson_ghb_itmx" name="singlebutton" class="btn btn-primary"> ย้าย</button>
+		  		<button id="btn_AcctNameEngBusiness_ghb_itmx" name="singlebutton" class="btn btn-primary"> ย้าย</button>
+		  </div>
+		  <div class="clearfix" ></div>
+		</div>
+
+		
+		<input id="FirstNameEng" name="FirstNameEng" type="hidden" value="@Model.STRFIELD6">
+		<input id="MiddleNameEng" name="MiddleNameEng" type="hidden" value="@Model.MAIDENNAME">
+		<input id="LastNameEng" name="LastNameEng" type="hidden" value="@Model.PREFERREDNAME">
+		
+        <input id="FirstNameThai" name="FirstNameThai" type="hidden" value="@Model.CUST_FIRST_NAME">
+		<input id="MiddleNameThai" name="MiddleNameThai" type="hidden" value="@Model.CUST_MIDDLE_NAME">
+		<input id="LastNameThai" name="LastNameThai" type="hidden" value="@Model.CUST_LAST_NAME">		
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 text-left" for="SSN">หมายเลขบัตรประชาชน</label>  
+		  <div class="col-md-5">
+		  	<input id="SSN" name="SSN" type="text" placeholder="" class="form-control input-md" value="@Model.SSN" readonly>
+		  </div>
+		  <div class="clearfix" ></div>
+		</div>
+
+		
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 text-left" for="MobileMailing">เบอร์โทรศัพท์เคลื่อนที่ (Mailing)</label>  
+		  <div class="col-md-5">
+		  	<input id="MobileMailing" name="MobileMailing" type="text" placeholder="" class="form-control input-md" value="0811111111" readonly>
+		  </div>
+		   <div class="col-md-2">
+		  		<button id="btn_MobileMailing_ghb_itmx" name="singlebutton" class="btn btn-primary"> ย้าย</button>
+		  </div>
+		  <div class="clearfix" ></div>
+		</div>
+
+		<div class="form-group">
+		  <label class="col-md-4 text-left" for="MobileHome">เบอร์โทรศัพท์เคลื่อนที่ (Home)</label>  
+		  <div class="col-md-5">
+		  	<input id="MobileHome" name="MobileHome" type="text" placeholder="" class="form-control input-md" value="082222222" readonly>
+		  </div>
+		  <div class="col-md-2">
+		  		<button id="btn_MobileHome_ghb_itmx" name="singlebutton" class="btn btn-primary"> ย้าย</button>
+		  </div>
+		  <div class="clearfix" ></div>
+		</div>
+
+		<div class="form-group">
+		  <label class="col-md-4 text-left" for="MobileWork">เบอร์โทรศัพท์เคลื่อนที่ (Work)</label>  
+		  <div class="col-md-5">
+		  	<input id="MobileWork" name="MobileWork" type="text" placeholder="" class="form-control input-md" value="083333333" readonly>
+		  </div>
+		  <div class="col-md-2">
+		  		<button id="btn_MobileWork_ghb_itmx" name="singlebutton" class="btn btn-primary"> ย้าย</button>
+		  </div>
+		  <div class="clearfix" ></div>
+		</div>
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 text-left" for="AcctStatus">สถานะบัญชี</label>  
+		  <div class="col-md-5">
+		  	<input id="AcctStatus" name="AcctStatus" type="text" placeholder="" class="form-control input-md" value="อายัตห้ามฝาก" readonly>
+		  </div>
+		  <div class="clearfix" ></div>
+		</div>
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 text-left" for="AcctJoint">เจ้าของร่วม</label>  
+		  <div class="col-md-5">
+		  	<input id="AcctJoint" name="AcctJoint" type="text" placeholder="" class="form-control input-md" value="มี" readonly>
+		  </div>
+		  <div class="clearfix" ></div>
+		</div>
+
+		</fieldset>
+	</div>
+
+    }
+

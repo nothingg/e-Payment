@@ -1,0 +1,124 @@
+2015-05-12 16:29:51,859 [15] ERROR LoanReceipt.Models.StatementRespository [GetStatement] - ORA-01017: invalid username/password; logon denied
+
+2015-05-12 16:29:51,984 [15] ERROR LoanReceipt.Models.AddressRespository [GetAddress] - ORA-01017: invalid username/password; logon denied
+
+2015-05-12 16:29:52,062 [15] ERROR LoanReceipt.Controllers.StatementController [Search] - Cannot redirect after HTTP headers have been sent.
+2015-05-15 10:27:27,093 [14] ERROR LoanReceipt.Models.StatementRespository [GetStatement] - ORA-01017: invalid username/password; logon denied
+
+2015-05-15 10:27:27,343 [14] ERROR LoanReceipt.Models.AddressRespository [GetAddress] - ORA-01017: invalid username/password; logon denied
+
+2015-05-15 10:27:28,093 [14] ERROR LoanReceipt.Controllers.StatementController [Search] - Cannot redirect after HTTP headers have been sent.
+2015-05-15 10:39:38,984 [17] ERROR LoanReceipt.Models.StatementRespository [GetStatement] - ORA-01017: invalid username/password; logon denied
+
+2015-05-15 10:39:39,078 [17] ERROR LoanReceipt.Models.AddressRespository [GetAddress] - ORA-01017: invalid username/password; logon denied
+
+2015-05-15 10:39:39,140 [17] ERROR LoanReceipt.Controllers.StatementController [Search] - Cannot redirect after HTTP headers have been sent.
+2015-05-15 10:40:30,500 [14] ERROR LoanReceipt.Models.StatementRespository [GetStatement] - ORA-01017: invalid username/password; logon denied
+
+2015-05-15 10:40:30,546 [14] ERROR LoanReceipt.Models.AddressRespository [GetAddress] - ORA-01017: invalid username/password; logon denied
+
+2015-05-15 10:40:30,562 [14] ERROR LoanReceipt.Controllers.StatementController [Search] - Cannot redirect after HTTP headers have been sent.
+2015-05-15 10:40:39,312 [5] ERROR LoanReceipt.Models.StatementRespository [GetStatement] - ORA-01017: invalid username/password; logon denied
+
+2015-05-15 10:40:39,359 [5] ERROR LoanReceipt.Models.AddressRespository [GetAddress] - ORA-01017: invalid username/password; logon denied
+
+2015-05-15 10:40:39,375 [5] ERROR LoanReceipt.Controllers.StatementController [Search] - Cannot redirect after HTTP headers have been sent.
+2015-05-15 10:40:50,984 [12] ERROR LoanReceipt.Models.StatementRespository [GetStatement] - ORA-01017: invalid username/password; logon denied
+
+2015-05-15 10:40:51,015 [12] ERROR LoanReceipt.Models.AddressRespository [GetAddress] - ORA-01017: invalid username/password; logon denied
+
+2015-05-15 10:40:51,062 [12] ERROR LoanReceipt.Controllers.StatementController [Search] - Cannot redirect after HTTP headers have been sent.
+2015-05-15 10:41:08,578 [13] ERROR LoanReceipt.Models.StatementRespository [GetStatement] - ORA-01017: invalid username/password; logon denied
+
+2015-05-15 10:41:08,609 [13] ERROR LoanReceipt.Models.AddressRespository [GetAddress] - ORA-01017: invalid username/password; logon denied
+
+2015-05-15 10:41:08,640 [13] ERROR LoanReceipt.Controllers.StatementController [Search] - Cannot redirect after HTTP headers have been sent.
+2015-05-15 10:42:32,906 [5] ERROR LoanReceipt.Models.StatementRespository [GetStatement] - ORA-01017: invalid username/password; logon denied
+
+2015-05-15 10:42:33,093 [5] ERROR LoanReceipt.Models.AddressRespository [GetAddress] - ORA-01017: invalid username/password; logon denied
+
+2015-05-15 10:42:41,625 [5] ERROR LoanReceipt.Controllers.StatementController [Search] - Cannot redirect after HTTP headers have been sent.
+2015-06-08 09:18:53,379 [7] ERROR LoanReceipt.Models.StatementRespository [GetStatement] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'LOAN_INV' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+
+2015-06-08 09:18:53,567 [7] ERROR LoanReceipt.Models.AddressRespository [GetAddress] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'GET_LOAN_ADDR_ACCT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+
+2015-06-08 09:18:53,629 [7] ERROR LoanReceipt.Controllers.StatementController [Search] - Cannot redirect after HTTP headers have been sent.
+2015-06-08 09:37:30,567 [32] ERROR LoanReceipt.Models.StatementRespository [GetStatement] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'LOAN_INV' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+
+2015-06-08 09:37:30,614 [32] ERROR LoanReceipt.Models.AddressRespository [GetAddress] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'GE10:00 08/06/2015T_LOAN_ADDR_ACCT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+
+2015-06-08 09:37:30,645 [32] ERROR LoanReceipt.Controllers.StatementController [Search] - Cannot redirect after HTTP headers have been sent.
+2015-06-08 10:10:06,145 [30] ERROR LoanReceipt.Models.AddressRespository [GetAddress] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'GET_LOAN_ADDR_ACCT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+
+2015-06-08 15:03:57,239 [15] ERROR LoanReceipt.Models.AcctJointRepository [GetAcctJoint] - ORA-00942: table or view does not exist
+
+2015-06-08 15:12:21,489 [11] ERROR LoanReceipt.Models.StatementRespository [GetStatement] - ORA-04068: existing state of packages has been discarded
+ORA-04061: existing state of package body "DWS_LOANRECEIPT_APP.LOANSTMTPACK" has been invalidated
+ORA-06508: PL/SQL: could not find program unit being called
+ORA-06512: at "DWS_LOANRECEIPT_APP.LOAN_INV", line 8
+ORA-06512: at line 1
+
+2015-06-10 09:08:29,858 [21] ERROR LoanReceipt.Models.StatementRespository [GetStatement] - ORA-04068: existing state of packages has been discarded
+ORA-04061: existing state of package body "DWS_LOANRECEIPT_APP.LOANSTMTPACK" has been invalidated
+ORA-06508: PL/SQL: could not find program unit being called
+ORA-06512: at "DWS_LOANRECEIPT_APP.LOAN_INV", line 8
+ORA-06512: at line 1
+
+2015-08-28 16:35:07,921 [4] ERROR LoanReceipt.Models.StatementRespository [GetStatement] - ORA-04068: existing state of packages has been discarded
+ORA-04063: package body "DWS_LOANRECEIPT_APP.LOANSTMTPACK" has errors
+ORA-06508: PL/SQL: could not find program unit being called
+ORA-06512: at "DWS_LOANRECEIPT_APP.LOAN_INV", line 8
+ORA-06512: at line 1
+
+2015-08-28 16:35:08,187 [4] ERROR LoanReceipt.Models.AddressRespository [GetAddress] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'GET_LOAN_ADDR_ACCT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+
+2015-08-28 16:35:08,375 [4] ERROR LoanReceipt.Controllers.StatementController [Search] - Cannot redirect after HTTP headers have been sent.
+2015-08-28 16:59:35,968 [26] ERROR LoanReceipt.Models.AddressRespository [GetAddress] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'GET_LOAN_ADDR_ACCT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+
+2015-10-29 11:09:48,984 [20] ERROR LoanReceipt.Models.StatementRespository [GetStatement] - ORA-01427: single-row subquery returns more than one row
+ORA-06512: at "DWS_LOANRECEIPT_APP.LOAN_INV", line 33
+ORA-06512: at line 1
+
+2015-10-29 11:11:52,296 [35] ERROR LoanReceipt.Models.StatementRespository [GetStatement] - ORA-01839: date not valid for month specified
+ORA-06512: at "DWS_LOANRECEIPT_APP.LOANSTMTPACK", line 155
+ORA-06512: at "DWS_LOANRECEIPT_APP.LOAN_INV", line 8
+ORA-06512: at line 1
+
+2015-10-29 11:13:02,843 [9] ERROR LoanReceipt.Models.StatementRespository [GetStatement] - ORA-04068: existing state of packages has been discarded
+ORA-04061: existing state of package body "DWS_LOANRECEIPT_APP.LOANSTMTPACK" has been invalidated
+ORA-06508: PL/SQL: could not find program unit being called
+ORA-06512: at "DWS_LOANRECEIPT_APP.LOAN_INV", line 8
+ORA-06512: at line 1
+
+2015-10-29 11:13:23,234 [10] ERROR LoanReceipt.Models.StatementRespository [GetStatement] - ORA-01839: date not valid for month specified
+ORA-06512: at "DWS_LOANRECEIPT_APP.LOANSTMTPACK", line 155
+ORA-06512: at "DWS_LOANRECEIPT_APP.LOAN_INV", line 8
+ORA-06512: at line 1
+
+2015-10-29 11:16:19,765 [4] ERROR LoanReceipt.Models.StatementRespository [GetStatement] - ORA-04068: existing state of packages has been discarded
+ORA-04061: existing state of package body "DWS_LOANRECEIPT_APP.LOANSTMTPACK" has been invalidated
+ORA-06508: PL/SQL: could not find program unit being called
+ORA-06512: at "DWS_LOANRECEIPT_APP.LOAN_INV", line 8
+ORA-06512: at line 1
+

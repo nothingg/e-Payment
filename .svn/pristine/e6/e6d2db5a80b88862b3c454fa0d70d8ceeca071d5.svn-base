@@ -1,0 +1,130 @@
+drop table AnyID_Data_CBS;
+
+create table AnyID_Data_CBS (
+    FORACID VARCHAR2 (16 Char)  PRIMARY KEY  not null ,
+    ACCT_NAME  VARCHAR2 (80 Char),
+    SSN  VARCHAR2 (25 Char),        
+    CUST_FIRST_NAME VARCHAR2 (80 Char)  ,      
+    CUST_MIDDLE_NAME    VARCHAR2 (80 Char)    ,    
+    CUST_LAST_NAME  VARCHAR2 (80 Char)    ,    
+    STRFIELD6   VARCHAR2 (50 Char)        ,
+    MAIDENNAME   VARCHAR2 (50 Char)        ,
+    PREFERREDNAME    VARCHAR2 (50 Char) ,
+    FREZ_CODE    VARCHAR2 (1 char),
+    ACCOUNTID    NUMBER (38) ,        
+    acct_status_dormant  VARCHAR2 (1 char),
+    ACCT_CLS_FLG VARCHAR2 (1 char),
+    COUNT_JOINT number     
+);
+
+drop table AnyID_MOBILE_CBS;
+
+create table AnyID_MOBILE_CBS (
+    ADDRESSID   NUMBER (38) PRIMARY KEY  not null ,
+    ACCOUNTID    NUMBER (38),
+    ADDRESSCATEGORY    VARCHAR2 (100 Char),         
+    CELLNO VARCHAR2 (50 Char));
+    
+drop table AnyID_Data_ITMX;
+
+create table AnyID_Data_ITMX(
+    RowIDs number  ,
+    Proxy_Type varchar2(12 char),
+    Proxy_Value varchar2(128 char),
+    Account_Type  varchar2(12 char), /* Dummy */
+    Account_Value varchar2(128 char),  /* Dummy Account  = Bank Code (033) + Dummy */
+    Account_Number varchar2(128 char), /* Real Account*/
+    Account_Name varchar2(64 char) ,
+    Display_Name varchar2(50 char),
+    Person_FirstName varchar2(32 char),
+    Person_SecondName varchar2(32 char),
+    Person_LastName varchar2(32 char),
+    Business_Name varchar2(64 char),
+    Business_Registered_Date date,
+    Registration_Status varchar2(6 char) ,  /* Active / Inactive */
+    created_date date,
+    created_user varchar2(20 char),
+    Flag_Register varchar2(1 char) ,
+    constraint RowIDs_PK primary key (RowIDs) enable    
+);
+
+select * from AnyID_Data_ITMX
+
+/** RUNNING SEQUENCE**/
+drop sequence ROWS_ID;
+
+CREATE SEQUENCE ROWS_ID
+START WITH 1
+INCREMENT BY 1;
+
+---------------------------------------------
+
+DROP TRIGGER ANYID_Gen_ROWS_Dummy;
+
+CREATE OR REPLACE TRIGGER ANYID_Gen_ROWS_Dummy -- ชื่อ Trigger
+BEFORE INSERT ON AnyID_Data_ITMX  --ชื่อ Table
+    FOR EACH ROW
+    declare
+    snt    number(10);
+        BEGIN
+          SELECT    ROWS_ID.NEXTVAL INTO  snt      -- ชื่อ column ใน table
+          FROM   dual;
+          
+          :new.RowIDs := snt;
+          :new.Account_Value :=  rpad('033',14, lpad( snt,11,'0')) ;
+        END;                
+
+alter trigger  ANYID_Gen_ROWS_Dummy enable ;
+
+
+/************  Log *******************/
+drop table AnyID_Logs;
+
+create table AnyID_Logs(
+    log_id number,
+    log_action varchar2(10 char),
+    log_data clob,
+    created_date date,
+    created_user varchar2(10 char),
+    constraint log_id_PK primary key (log_id) enable
+);
+
+/** RUNNING LOG id**/
+drop sequence ANYID_LOGID;
+
+CREATE SEQUENCE ANYID_LOGID
+START WITH 1
+INCREMENT BY 1;
+
+---------------------------------------------
+
+DROP TRIGGER ANYID_Gen_LogID;
+
+CREATE OR REPLACE TRIGGER ANYID_Gen_LogID -- ชื่อ Trigger
+BEFORE INSERT ON AnyID_Logs  --ชื่อ Table
+    FOR EACH ROW
+    declare
+    snt    number(10);
+        BEGIN
+          SELECT    ANYID_LOGID.NEXTVAL 
+          INTO  snt     
+          FROM   dual;
+          :new.log_id := snt;    -- ชื่อ column ใน table
+        END;                
+
+alter trigger  ANYID_Gen_LogID enable ;
+
+
+
+
+/***** Test ******/
+drop table B_Table_EntitiesVIEW_GAM;
+
+create table B_Table_EntitiesVIEW_GAM  (
+    ACID VARCHAR2 (11 Char) PRIMARY KEY not null,
+    SOL_ID VARCHAR2 (8 Char),
+    FORACID VARCHAR2 (16 Char),
+    ACCT_NAME VARCHAR2 (80 Char),
+    SCHM_CODE VARCHAR2 (5 Char),
+    CLR_BAL_AMT NUMBER (20,4) 
+);      

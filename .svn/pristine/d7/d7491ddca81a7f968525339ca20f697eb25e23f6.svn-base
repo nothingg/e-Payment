@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="OracleContext">
+    <EntitySetMapping Name="ANYID_DATA_CBS">
+      <EntityTypeMapping TypeName="DataModel.ANYID_DATA_CBS">
+        <MappingFragment StoreEntitySet="ANYID_DATA_CBS">
+          <ScalarProperty Name="CELLNO" ColumnName="CELLNO" />
+          <ScalarProperty Name="PREFERREDNAME" ColumnName="PREFERREDNAME" />
+          <ScalarProperty Name="MAIDENNAME" ColumnName="MAIDENNAME" />
+          <ScalarProperty Name="STRFIELD6" ColumnName="STRFIELD6" />
+          <ScalarProperty Name="CUST_LAST_NAME" ColumnName="CUST_LAST_NAME" />
+          <ScalarProperty Name="CUST_MIDDLE_NAME" ColumnName="CUST_MIDDLE_NAME" />
+          <ScalarProperty Name="CUST_FIRST_NAME" ColumnName="CUST_FIRST_NAME" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+          <ScalarProperty Name="ACCT_NAME" ColumnName="ACCT_NAME" />
+          <ScalarProperty Name="FORACID" ColumnName="FORACID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ANYID_GET_DATA_CBS" FunctionName="DataModel.Store.ANYID_GET_DATA_CBS" />
+    <FunctionImportMapping FunctionImportName="B_P_GAM" FunctionName="DataModel.Store.B_P_GAM" />
+    <EntitySetMapping Name="B_TABLE_ENTITIESVIEW_GAM">
+      <EntityTypeMapping TypeName="DataModel.B_TABLE_ENTITIESVIEW_GAM">
+        <MappingFragment StoreEntitySet="B_TABLE_ENTITIESVIEW_GAM">
+          <ScalarProperty Name="CLR_BAL_AMT" ColumnName="CLR_BAL_AMT" />
+          <ScalarProperty Name="SCHM_CODE" ColumnName="SCHM_CODE" />
+          <ScalarProperty Name="ACCT_NAME" ColumnName="ACCT_NAME" />
+          <ScalarProperty Name="FORACID" ColumnName="FORACID" />
+          <ScalarProperty Name="SOL_ID" ColumnName="SOL_ID" />
+          <ScalarProperty Name="ACID" ColumnName="ACID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="OracleContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ANYID_DATA_CBS" EntityType="DataModel.ANYID_DATA_CBS" />
+    <FunctionImport Name="ANYID_GET_DATA_CBS" EntitySet="ANYID_DATA_CBS" ReturnType="Collection(DataModel.ANYID_DATA_CBS)">
+      <Parameter Name="FORACID_IN" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="B_P_GAM" EntitySet="B_TABLE_ENTITIESVIEW_GAM" ReturnType="Collection(DataModel.B_TABLE_ENTITIESVIEW_GAM)">
+      <Parameter Name="FORACID_IN" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="B_TABLE_ENTITIESVIEW_GAM" EntityType="DataModel.B_TABLE_ENTITIESVIEW_GAM" />
+    <EntitySet Name="ANYID_MOBILE_CBS" EntityType="DataModel.ANYID_MOBILE_CBS" />
+    <FunctionImport Name="ANYID_GET_MOBILE_CBS" EntitySet="ANYID_MOBILE_CBS" ReturnType="Collection(DataModel.ANYID_MOBILE_CBS)">
+      <Parameter Name="ACCOUNTID_IN" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="ANYID_DATA_ITMX" EntityType="DataModel.ANYID_DATA_ITMX" />
+    <EntitySet Name="ANYID_LOGS" EntityType="DataModel.ANYID_LOGS" />
+  </EntityContainer>
+  <EntityType Name="ANYID_DATA_CBS">
+    <Key>
+      <PropertyRef Name="FORACID" />
+    </Key>
+    <Property Type="String" Name="FORACID" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ACCT_NAME" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SSN" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CUST_FIRST_NAME" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CUST_MIDDLE_NAME" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CUST_LAST_NAME" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="STRFIELD6" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MAIDENNAME" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PREFERREDNAME" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FREZ_CODE" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Type="Int16" Name="COUNT_JOINT" />
+    <Property Type="Decimal" Name="ACCOUNTID" Precision="38" Scale="0" />
+    <Property Type="String" Name="ACCT_STATUS_DORMANT" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ACCT_CLS_FLG" MaxLength="1" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="B_TABLE_ENTITIESVIEW_GAM">
+    <Key>
+      <PropertyRef Name="ACID" />
+    </Key>
+    <Property Type="String" Name="ACID" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SOL_ID" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FORACID" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ACCT_NAME" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SCHM_CODE" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="CLR_BAL_AMT" Precision="20" Scale="4" />
+  </EntityType>
+  <EntityType Name="ANYID_MOBILE_CBS">
+    <Key>
+      <PropertyRef Name="ADDRESSID" />
+    </Key>
+    <Property Type="Decimal" Name="ADDRESSID" Nullable="false" Precision="38" Scale="0" />
+    <Property Type="Decimal" Name="ACCOUNTID" Precision="38" Scale="0" />
+    <Property Type="String" Name="ADDRESSCATEGORY" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CELLNO" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ANYID_DATA_ITMX">
+    <Key>
+      <PropertyRef Name="ROWIDS" />
+    </Key>
+    <Property Type="Int16" Name="ROWIDS" Nullable="false" />
+    <Property Type="String" Name="PROXY_TYPE" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PROXY_VALUE" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ACCOUNT_TYPE" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ACCOUNT_VALUE" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ACCOUNT_NUMBER" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ACCOUNT_NAME" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DISPLAY_NAME" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PERSON_FIRSTNAME" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PERSON_SECONDNAME" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PERSON_LASTNAME" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BUSINESS_NAME" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="BUSINESS_REGISTERED_DATE" />
+    <Property Type="String" Name="REGISTRATION_STATUS" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CREATED_DATE" />
+    <Property Type="String" Name="CREATED_USER" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FLAG_REGISTER" MaxLength="1" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ANYID_LOGS">
+    <Key>
+      <PropertyRef Name="LOG_ID" />
+    </Key>
+    <Property Type="Decimal" Name="LOG_ID" Nullable="false" Precision="38" Scale="0" />
+    <Property Type="String" Name="LOG_ACTION" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LOG_DATA" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CREATED_DATE" />
+    <Property Type="String" Name="CREATED_USER" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CREATED_SOL" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="OracleContext">
+    <EntitySetMapping Name="ANYID_DATA_CBS">
+      <EntityTypeMapping TypeName="DataModel.ANYID_DATA_CBS">
+        <MappingFragment StoreEntitySet="ANYID_DATA_CBS">
+          <ScalarProperty Name="ACCT_CLS_FLG" ColumnName="ACCT_CLS_FLG" />
+          <ScalarProperty Name="ACCT_STATUS_DORMANT" ColumnName="ACCT_STATUS_DORMANT" />
+          <ScalarProperty Name="ACCOUNTID" ColumnName="ACCOUNTID" />
+          <ScalarProperty Name="COUNT_JOINT" ColumnName="COUNT_JOINT" />
+          <ScalarProperty Name="FREZ_CODE" ColumnName="FREZ_CODE" />
+          <ScalarProperty Name="PREFERREDNAME" ColumnName="PREFERREDNAME" />
+          <ScalarProperty Name="MAIDENNAME" ColumnName="MAIDENNAME" />
+          <ScalarProperty Name="STRFIELD6" ColumnName="STRFIELD6" />
+          <ScalarProperty Name="CUST_LAST_NAME" ColumnName="CUST_LAST_NAME" />
+          <ScalarProperty Name="CUST_MIDDLE_NAME" ColumnName="CUST_MIDDLE_NAME" />
+          <ScalarProperty Name="CUST_FIRST_NAME" ColumnName="CUST_FIRST_NAME" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+          <ScalarProperty Name="ACCT_NAME" ColumnName="ACCT_NAME" />
+          <ScalarProperty Name="FORACID" ColumnName="FORACID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ANYID_GET_DATA_CBS" FunctionName="DataModel.Store.ANYID_GET_DATA_CBS" />
+    <FunctionImportMapping FunctionImportName="B_P_GAM" FunctionName="DataModel.Store.B_P_GAM" />
+    <EntitySetMapping Name="B_TABLE_ENTITIESVIEW_GAM">
+      <EntityTypeMapping TypeName="DataModel.B_TABLE_ENTITIESVIEW_GAM">
+        <MappingFragment StoreEntitySet="B_TABLE_ENTITIESVIEW_GAM">
+          <ScalarProperty Name="CLR_BAL_AMT" ColumnName="CLR_BAL_AMT" />
+          <ScalarProperty Name="SCHM_CODE" ColumnName="SCHM_CODE" />
+          <ScalarProperty Name="ACCT_NAME" ColumnName="ACCT_NAME" />
+          <ScalarProperty Name="FORACID" ColumnName="FORACID" />
+          <ScalarProperty Name="SOL_ID" ColumnName="SOL_ID" />
+          <ScalarProperty Name="ACID" ColumnName="ACID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ANYID_MOBILE_CBS">
+      <EntityTypeMapping TypeName="DataModel.ANYID_MOBILE_CBS">
+        <MappingFragment StoreEntitySet="ANYID_MOBILE_CBS">
+          <ScalarProperty Name="CELLNO" ColumnName="CELLNO" />
+          <ScalarProperty Name="ADDRESSCATEGORY" ColumnName="ADDRESSCATEGORY" />
+          <ScalarProperty Name="ACCOUNTID" ColumnName="ACCOUNTID" />
+          <ScalarProperty Name="ADDRESSID" ColumnName="ADDRESSID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ANYID_GET_MOBILE_CBS" FunctionName="DataModel.Store.ANYID_GET_MOBILE_CBS" />
+    <EntitySetMapping Name="ANYID_DATA_ITMX">
+      <EntityTypeMapping TypeName="DataModel.ANYID_DATA_ITMX">
+        <MappingFragment StoreEntitySet="ANYID_DATA_ITMX">
+          <ScalarProperty Name="FLAG_REGISTER" ColumnName="FLAG_REGISTER" />
+          <ScalarProperty Name="CREATED_USER" ColumnName="CREATED_USER" />
+          <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+          <ScalarProperty Name="REGISTRATION_STATUS" ColumnName="REGISTRATION_STATUS" />
+          <ScalarProperty Name="BUSINESS_REGISTERED_DATE" ColumnName="BUSINESS_REGISTERED_DATE" />
+          <ScalarProperty Name="BUSINESS_NAME" ColumnName="BUSINESS_NAME" />
+          <ScalarProperty Name="PERSON_LASTNAME" ColumnName="PERSON_LASTNAME" />
+          <ScalarProperty Name="PERSON_SECONDNAME" ColumnName="PERSON_SECONDNAME" />
+          <ScalarProperty Name="PERSON_FIRSTNAME" ColumnName="PERSON_FIRSTNAME" />
+          <ScalarProperty Name="DISPLAY_NAME" ColumnName="DISPLAY_NAME" />
+          <ScalarProperty Name="ACCOUNT_NAME" ColumnName="ACCOUNT_NAME" />
+          <ScalarProperty Name="ACCOUNT_NUMBER" ColumnName="ACCOUNT_NUMBER" />
+          <ScalarProperty Name="ACCOUNT_VALUE" ColumnName="ACCOUNT_VALUE" />
+          <ScalarProperty Name="ACCOUNT_TYPE" ColumnName="ACCOUNT_TYPE" />
+          <ScalarProperty Name="PROXY_VALUE" ColumnName="PROXY_VALUE" />
+          <ScalarProperty Name="PROXY_TYPE" ColumnName="PROXY_TYPE" />
+          <ScalarProperty Name="ROWIDS" ColumnName="ROWIDS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ANYID_LOGS">
+      <EntityTypeMapping TypeName="DataModel.ANYID_LOGS">
+        <MappingFragment StoreEntitySet="ANYID_LOGS">
+          <ScalarProperty Name="CREATED_USER" ColumnName="CREATED_USER" />
+          <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+          <ScalarProperty Name="LOG_DATA" ColumnName="LOG_DATA" />
+          <ScalarProperty Name="LOG_ACTION" ColumnName="LOG_ACTION" />
+          <ScalarProperty Name="LOG_ID" ColumnName="LOG_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataModel.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="9.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="DataModelStoreContainer">
+    <EntitySet Name="ANYID_DATA_CBS" EntityType="DataModel.Store.ANYID_DATA_CBS" store:Type="Tables" Schema="CUSTOM" />
+    <EntitySet Name="B_TABLE_ENTITIESVIEW_GAM" EntityType="DataModel.Store.B_TABLE_ENTITIESVIEW_GAM" store:Type="Tables" Schema="CUSTOM" />
+  </EntityContainer>
+  <EntityType Name="ANYID_DATA_CBS">
+    <Key>
+      <PropertyRef Name="FORACID" />
+    </Key>
+    <Property Name="FORACID" Type="varchar2" Nullable="false" MaxLength="16" />
+    <Property Name="ACCT_NAME" Type="varchar2" MaxLength="80" />
+    <Property Name="SSN" Type="varchar2" MaxLength="25" />
+    <Property Name="CUST_FIRST_NAME" Type="varchar2" MaxLength="80" />
+    <Property Name="CUST_MIDDLE_NAME" Type="varchar2" MaxLength="80" />
+    <Property Name="CUST_LAST_NAME" Type="varchar2" MaxLength="80" />
+    <Property Name="STRFIELD6" Type="varchar2" MaxLength="50" />
+    <Property Name="MAIDENNAME" Type="varchar2" MaxLength="50" />
+    <Property Name="PREFERREDNAME" Type="varchar2" MaxLength="50" />
+    <Property Name="CELLNO" Type="varchar2" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="B_TABLE_ENTITIESVIEW_GAM">
+    <Key>
+      <PropertyRef Name="ACID" />
+    </Key>
+    <Property Name="ACID" Type="varchar2" Nullable="false" MaxLength="11" />
+    <Property Name="SOL_ID" Type="varchar2" MaxLength="8" />
+    <Property Name="FORACID" Type="varchar2" MaxLength="16" />
+    <Property Name="ACCT_NAME" Type="varchar2" MaxLength="80" />
+    <Property Name="SCHM_CODE" Type="varchar2" MaxLength="5" />
+    <Property Name="CLR_BAL_AMT" Type="number" Precision="20" Scale="4" />
+  </EntityType>
+  <Function Name="ANYID_GET_DATA_CBS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="CUSTOM" />
+  <Function Name="B_P_GAM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="CUSTOM" />
+</Schema>

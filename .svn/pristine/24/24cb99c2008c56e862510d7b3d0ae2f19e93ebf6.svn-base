@@ -1,0 +1,41 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using AnyID.Models;
+
+namespace AnyID.Controllers
+{
+    public class RegisterController : Controller
+    {
+        private RegisterModel RegisterModel;
+        //
+        // GET: /Register/
+        [HttpGet]
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Index(RegisterModel Input)
+        {
+            OracleContext db = new OracleContext();
+            var Getrs = db.ANYID_GET_DATA_CBS(Input.AcctNumber);
+            List<ANYID_DATA_CBS> rs = Getrs.ToList() ;
+            ANYID_DATA_CBS rsOne = rs.FirstOrDefault();
+            ViewBag.HaveJoint = (Convert.ToInt16(rsOne.COUNT_JOINT) > 1) ? "มี" : "ไม่มี";
+            ViewBag.FrezDesc = RegisterModel.GetFrezDesc(rsOne.FREZ_CODE.ToString());
+            ViewBag.AcctStatusDesc = RegisterModel.GetAcctStatusDesc(rsOne.ACCT_STATUS.ToString());
+            ViewBag.AccountNumber = Input.AcctNumber;
+
+            
+
+            return View("Index", rsOne);
+        }
+
+        
+
+    }
+}

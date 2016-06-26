@@ -1,0 +1,33 @@
+CREATE OR REPLACE PROCEDURE AnyID_Get_DATA_CBS (  OUT_CURSOR    OUT SYS_REFCURSOR)
+IS
+BEGIN
+    OPEN OUT_CURSOR FOR
+         SELECT g.foracid , g.acct_name ,  
+                    acct.ssn, acct.cust_first_name,  acct.cust_middle_name,acct.cust_last_name , acct.strfield6,acct.MAIDENNAME,acct.preferredname,
+                    addr.cellno
+            FROM tbaadm.gam g , crmuser.accounts acct , crmuser.address addr 
+                WHERE g.cif_id = acct.orgkey AND acct.accountid = addr.accountid 
+                AND g.foracid = '001150436382'
+                AND g.entity_cre_flg = 'Y'
+                AND g.del_flg = 'N'
+                AND g.acct_cls_flg = 'N'
+                AND g.schm_type = 'SBA'
+                AND addr.addresscategory = 'Mailing'
+                AND 1 = (select count(*) from tbaadm.aas aas where g.acid = aas.acid and g.foracid = '001150436382'); 
+    END AnyID_Get_DATA_CBS;
+
+
+
+
+/*  Test  */
+/*
+CREATE OR REPLACE PROCEDURE B_P_GAM (  OUT_CURSOR    OUT SYS_REFCURSOR)
+IS
+BEGIN
+    OPEN OUT_CURSOR FOR
+         SELECT 
+            acid , sol_id , foracid , acct_name , schm_code , clr_bal_amt
+          FROM tbaadm.gam where foracid = '001150436382';
+    END B_P_GAM;
+*/
+    

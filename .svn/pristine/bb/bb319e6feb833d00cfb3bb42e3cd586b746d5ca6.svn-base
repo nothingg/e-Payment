@@ -1,0 +1,88 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Data;
+using System.Data.OracleClient;
+using System.Configuration;
+using AnyID.Models;
+using Newtonsoft.Json;
+
+namespace AnyID.Models
+{
+    public class RegisterModel
+    {
+        public string AcctNumber { get; set; }
+
+        public static ANYID_DATA_CBS CovertNameCustomerTo32Char(ANYID_DATA_CBS item)
+        {
+
+            item.CUST_FIRST_NAME = (string.IsNullOrEmpty(item.CUST_FIRST_NAME) || item.CUST_FIRST_NAME.Length <= 32) ? item.CUST_FIRST_NAME : item.CUST_FIRST_NAME.Substring(0, 32);
+            item.CUST_MIDDLE_NAME = (string.IsNullOrEmpty(item.CUST_MIDDLE_NAME) || item.CUST_MIDDLE_NAME.Length <= 32) ? item.CUST_MIDDLE_NAME : item.CUST_MIDDLE_NAME.Substring(0, 32);
+            item.CUST_LAST_NAME = (string.IsNullOrEmpty(item.CUST_LAST_NAME) || item.CUST_LAST_NAME.Length <= 32) ? item.CUST_LAST_NAME : item.CUST_LAST_NAME.Substring(0, 32);
+
+            item.STRFIELD6 = (string.IsNullOrEmpty(item.STRFIELD6) || item.STRFIELD6.Length <= 32) ? item.STRFIELD6 : item.STRFIELD6.Substring(0, 32);
+            item.MAIDENNAME = (string.IsNullOrEmpty(item.MAIDENNAME) || item.MAIDENNAME.Length <= 32) ? item.CUST_MIDDLE_NAME : item.CUST_MIDDLE_NAME.Substring(0, 32);
+            item.PREFERREDNAME = (string.IsNullOrEmpty(item.PREFERREDNAME) || item.PREFERREDNAME.Length <= 32) ? item.PREFERREDNAME : item.PREFERREDNAME.Substring(0, 32);
+
+            return item;
+        }
+        
+        public static string GetFrezDesc (string FrezCode)
+        {
+            switch (FrezCode)
+            {
+                case "C":
+                    return "อายัตห้ามฝาก ห้ามถอน";
+                    break;
+                case "D":
+                    return "อายัตห้ามถอน";
+                    break;
+                case "T":
+                    return "อายัตห้ามถอน";
+                    break;
+                default:
+                    return "";
+                    break;
+            }
+        }
+
+        public static string GetAcctStatusDesc(string AcctStatus)
+        {
+            switch (AcctStatus)
+            {
+                case "A":
+                    return "Active";
+                    break;
+                case "D":
+                    return "Dormant";
+                    break;
+                default:
+                    return "";
+                    break;
+            }
+        }
+
+        public static bool InsertLogs(ANYID_DATA_CBS rsOne)
+        {
+            try
+            {
+                ANYID_LOGS rsLog = new ANYID_LOGS();
+                rsLog.LOG_ACTION = "SEARCH";
+                rsLog.CREATED_DATE = DateTime.Now;
+                rsLog.CREATED_USER = ""; /* ดึงจาก Session*/
+                rsLog.LOG_DATA = JsonConvert.SerializeObject(rsOne);
+
+                OracleContext db = new OracleContext();
+                db.AddToANYID_LOGS(rsLog);
+                db.SaveChanges();
+                return true;
+            }
+            catch 
+            {
+                return false;
+            }
+            
+        }
+    }
+}

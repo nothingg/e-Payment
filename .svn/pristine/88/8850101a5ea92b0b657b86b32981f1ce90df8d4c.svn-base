@@ -1,0 +1,8 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Registration PromPay</h2>
+
+@Html.ActionLink("เข้าใช้งาน","Index","Register", null, new{target="_blank"}):

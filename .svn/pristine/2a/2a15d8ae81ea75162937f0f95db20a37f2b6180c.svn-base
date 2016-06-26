@@ -1,0 +1,404 @@
+﻿@model AnyID.Models.ANYID_DATA_CBS
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    @using (Html.BeginForm("Index", "Register", FormMethod.Post, new { id = "form1", @class = "form-horizontal" }))
+    { 
+    <div class="form-horizontal">
+		<fieldset>
+
+		<!-- Form Name -->
+		<legend>Any ID Resgister</legend>
+
+		<!-- Text input-->
+		<div class="form-group col-md-6">
+		  <label class="col-md-4 text-left" for="textinput">Account Number</label>  
+		  <div class="col-md-4">
+		  	<input id="AcctNumber" name="AcctNumber" type="text" placeholder="เลขที่บัญชี" class="form-control input-md" value="@ViewBag.AccountNumber" />
+		  </div>
+		</div>
+		
+		
+		<div class="clearfix"></div>
+		<!-- Button -->
+		<div class="form-group col-md-6">
+		  <label class="col-md-4 control-label" for="singlebutton"></label>
+		  <div class="col-md-4">
+		    <button id="singlebutton" name="singlebutton" class="btn btn-primary">ค้นหา</button>
+		  </div>
+		</div>
+
+		</fieldset>
+	</div>
+    }
+
+    @if(Convert.ToString(TempData["Notify"]) == "IsTrue") 
+    { 
+        <div class="alert @TempData["class"]">
+            <strong>@TempData["message"]</strong>
+        </div>
+    }
+    
+	
+
+    @if (IsPost && Model != null)
+    {
+        <!------------ content Left ------------>
+	<div class="form-horizontal col-md-6 data-customer">
+		<fieldset>
+		
+		<!-- Form Name -->
+		<legend>CBS Data</legend>
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 text-left" for="AcctNameThai">ชื่อบัญชี</label>  
+		  <div class="col-md-5">
+		  	<input id="AcctNameThai" name="AcctNameThai" type="text" placeholder="" class="form-control input-md" value="@Model.ACCT_NAME" readonly>
+		  </div>
+		  <div class="clearfix" ></div>
+		</div>
+		
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 text-left" for="FullNameThai">ชื่อเจ้าของบัญชี</label>  
+		  <div class="col-md-5">
+		  	<input id="FullNameThai" name="FullNameThai" type="text" placeholder="" class="form-control input-md" readonly>
+		  </div>
+			<div class="clearfix" ></div>  
+		</div>
+		
+
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 text-left" for="AcctName">ชื่อบัญชี (ENG)</label>  
+		  <div class="col-md-5">
+		  	<input id="AcctNameEng" name="AcctNameEng" type="text" placeholder="" class="form-control input-md" readonly>
+		  </div>
+		  <div class="col-md-2">
+		  		<button id="btn_AcctNameEngPerson_ghb_itmx" name="singlebutton" class="btn btn-primary"> ย้าย</button>
+		  		<button id="btn_AcctNameEngBusiness_ghb_itmx" name="singlebutton" class="btn btn-primary"> ย้าย</button>
+		  </div>
+		  <div class="clearfix" ></div>
+		</div>
+
+		
+		<input id="FirstNameEng" name="FirstNameEng" type="hidden" value="@Model.STRFIELD6">
+		<input id="MiddleNameEng" name="MiddleNameEng" type="hidden" value="@Model.MAIDENNAME">
+		<input id="LastNameEng" name="LastNameEng" type="hidden" value="@Model.PREFERREDNAME">
+		
+        <input id="FirstNameThai" name="FirstNameThai" type="hidden" value="@Model.CUST_FIRST_NAME">
+		<input id="MiddleNameThai" name="MiddleNameThai" type="hidden" value="@Model.CUST_MIDDLE_NAME">
+		<input id="LastNameThai" name="LastNameThai" type="hidden" value="@Model.CUST_LAST_NAME">		
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 text-left" for="SSN">หมายเลขบัตรประชาชน</label>  
+		  <div class="col-md-5">
+		  	<input id="SSN" name="SSN" type="text" placeholder="" class="form-control input-md" value="@Model.SSN" readonly>
+		  </div>
+		  <div class="clearfix" ></div>
+		</div>
+
+		
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 text-left" for="MobileMailing">เบอร์โทรศัพท์เคลื่อนที่ (Mailing)</label>  
+		  <div class="col-md-5">
+		  	<input id="MobileMailing" name="MobileMailing" type="text" placeholder="" class="form-control input-md" value="@ViewBag.MailingMobile" readonly>
+		  </div>
+		   <div class="col-md-2">
+		  		<button id="btn_MobileMailing_ghb_itmx" name="singlebutton" class="btn btn-primary"> ย้าย</button>
+		  </div>
+		  <div class="clearfix" ></div>
+		</div>
+
+		<div class="form-group">
+		  <label class="col-md-4 text-left" for="MobileHome">เบอร์โทรศัพท์เคลื่อนที่ (Home)</label>  
+		  <div class="col-md-5">
+		  	<input id="MobileHome" name="MobileHome" type="text" placeholder="" class="form-control input-md" value="@ViewBag.HomeMobile" readonly>
+		  </div>
+		  <div class="col-md-2">
+		  		<button id="btn_MobileHome_ghb_itmx" name="singlebutton" class="btn btn-primary"> ย้าย</button>
+		  </div>
+		  <div class="clearfix" ></div>
+		</div>
+
+		<div class="form-group">
+		  <label class="col-md-4 text-left" for="MobileWork">เบอร์โทรศัพท์เคลื่อนที่ (Work)</label>  
+		  <div class="col-md-5">
+		  	<input id="MobileWork" name="MobileWork" type="text" placeholder="" class="form-control input-md" value="@ViewBag.WorkMobile" readonly>
+		  </div>
+		  <div class="col-md-2">
+		  		<button id="btn_MobileWork_ghb_itmx" name="singlebutton" class="btn btn-primary"> ย้าย</button>
+		  </div>
+		  <div class="clearfix" ></div>
+		</div>
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 text-left" for="AcctStatus">สถานะบัญชี (ไม่เคลื่อนไหว)</label>  
+		  <div class="col-md-5">
+		  	<input id="AcctStatus" name="AcctStatus" type="text" placeholder="" class="form-control input-md" value="@ViewBag.AcctStatusDormant" readonly>
+		  </div>
+		  <div class="clearfix" ></div>
+		</div>
+
+        <!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 text-left" for="AcctStatus">สถานะบัญชี (อายัด)</label>  
+		  <div class="col-md-5">
+            <input id="AcctFrez" name="AcctFrez" type="text" placeholder="" class="form-control input-md" value="@ViewBag.FrezDesc" readonly>
+		  </div>
+		  <div class="clearfix" ></div>
+		</div>
+
+        <!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 text-left" for="AcctStatus">สถานะบัญชี (เปิด / ปิด)</label>  
+		  <div class="col-md-5">
+            <input id="AcctCls" name="AcctFrez" type="text" placeholder="" class="form-control input-md" value="@ViewBag.AcctClsFlg" readonly>
+		  </div>
+		  <div class="clearfix" ></div>
+		</div>
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 text-left" for="AcctJoint">เจ้าของร่วม</label>  
+		  <div class="col-md-5">
+		  	<input id="AcctJoint" name="AcctJoint" type="text" placeholder="" class="form-control input-md" value="@ViewBag.HaveJoint" readonly>
+		  </div>
+		  <div class="clearfix" ></div>
+		</div>
+
+		</fieldset>
+	</div>
+
+    <!------------ content Right ------------>
+        
+        using (Html.BeginForm("InsertNewAccount", "Register", FormMethod.Post, new { id = "form2" }))
+        {
+        <input type="hidden" name="AccountNumber" value="@ViewBag.AccountNumber" />
+	    <div class="form-horizontal col-md-6 data-customer">
+	    <fieldset>
+	
+	    <!-- Form Name -->
+	    <legend>PromPay Registration</legend>
+	    @if (Model.ACCT_STATUS_DORMANT == "D" ||
+                Model.COUNT_JOINT > 1 ||
+                Model.ACCT_CLS_FLG == "Y" ||
+                Model.FREZ_CODE == "C" ||
+                Model.FREZ_CODE == "D" ||
+                Model.FREZ_CODE == "T")
+     {
+            <div class="form-group"> 
+                <label class="col-md-5 text-left" for="selectbasic"> ไม่สามารถทำรายการได้ เนื่องจากบัญชีติดสถานะ หรือ มีบัญชีร่วม </label>
+            </div>
+     }
+     else
+     { 
+	        <!-- Select Basic -->
+	        <div class="form-group">
+  		        <label class="col-md-4 text-left" for="selectbasic">Proxy Type</label>
+		          <div class="col-md-4">
+		            <select id="ITMXProxyType" name="ITMXProxyType" class="form-control">
+				        <option value="">--- PLEASE SELECT --</option>
+				        <option value="NATID">ลงทะเบียนด้วยเลขบัตรประชาชน(NATID)</option>
+		      	        <option value="MSISDN">ลงทะเบียนด้วยเบอร์มือถือ(MSISDN)</option>
+		            </select>
+		          </div>
+		          <div class="clearfix"></div>
+	        </div>
+	
+
+	        <!-- Text input-->
+	        <div class="form-group">
+	          <label class="col-md-4 text-left" for="ITMXProxyValue">Proxy Value</label>  
+	          <div class="col-md-4">
+	          <input id="ITMXProxyValue" name="ITMXProxyValue" type="text" placeholder="" class="form-control input-md" readonly>
+	    
+	          </div>
+	          <div class="clearfix"></div>
+	        </div>
+	
+
+	        <!-- Multiple Radios -->
+	        <div class="form-group">
+		        <label class="col-md-4 text-left" for="radios">Account Holder</label>
+		        <div class="col-md-4">
+		        <div class="radio">
+			        <label for="radios-0">
+			        <input type="radio" name="AcctHolder" class="radios-ah" value="Person"> Person
+			        </label>
+		        </div>
+	  	        <div class="radio">
+	    	        <label for="radios-1">
+	      	        <input type="radio" name="AcctHolder" class="radios-ah" value="Business"> Business
+	    	        </label>
+		        </div>
+	  	        </div>
+	  	        <div class="clearfix"></div>
+	        </div>
+	
+
+	        <div class="ITMXPerson">
+
+		        <!-- Text input-->
+		        <div class="form-group">
+		          <label class="col-md-4 text-left" for="ITMXFirstName">Person First Name (ENG)</label>  
+		  	        <div class="col-md-4">
+		  		        <input id="ITMXFirstName" name="ITMXFirstName" type="text" placeholder="ข้อมูลเป็นภาษาอังกฤษ" class="form-control input-md" readonly >
+			        </div>
+			        <div class="clearfix"></div>		  		
+		        </div>
+		
+
+		        <!-- Text input-->
+		        <div class="form-group">
+		          <label class="col-md-4 text-left" for="ITMXSecondName">Person Second Name (ENG)</label>  
+		  	        <div class="col-md-4">
+		  		        <input id="ITMXSecondName" name="ITMXSecondName" type="text" placeholder="ข้อมูลเป็นภาษาอังกฤษ" class="form-control input-md" readonly>
+		  	        </div>
+		  	        <div class="clearfix"></div>
+		        </div>
+		
+
+		        <!-- Text input-->
+		        <div class="form-group">
+		          <label class="col-md-4 text-left" for="ITMXLastName">Person Last Name (ENG)</label>  
+		  	        <div class="col-md-4">
+		  	        <input id="ITMXLastName" name="ITMXLastName" type="text" placeholder="ข้อมูลเป็นภาษาอังกฤษ" class="form-control input-md" readonly>
+			        </div>
+			        <div class="clearfix"></div>
+		        </div>
+		
+
+	        </div>
+
+	        <div class="ITMXBusiness">
+		        <!-- Text input-->
+		        <div class="form-group">
+		          <label class="col-md-4 text-left" for="ITMXBusinessName">Business Name (ENG)</label>  
+		          <div class="col-md-4">
+		  	        <input id="ITMXBusinessName" name="ITMXBusinessName" type="text" placeholder="ข้อมูลเป็นภาษาอังกฤษ" class="form-control input-md" >
+		          </div>
+		          <div class="clearfix"></div>
+		        </div>
+		
+
+		        <!-- Text input-->
+		        <div class="form-group">
+		          <label class="col-md-4 text-left" for="ITMXBusinessRegisterDate">Business Registered Date</label>  
+		          <div class="col-md-4">
+			        <input id="ITMXBusinessRegisterDate" name="ITMXBusinessRegisterDate" class="datepicker form-control input-md" >
+		          </div>
+		          <div class="clearfix"></div>
+		        </div>
+		
+	        </div>
+
+	        <!-- Text input-->
+	        <div class="form-group">
+	          <label class="col-md-4 text-left" for="AcctName">Accout Name (Eng)</label>  
+	          <div class="col-md-4">
+	  	        <input id="ITMXAcctName" name="ITMXAcctName" type="text" placeholder="ข้อมูลเป็นภาษาอังกฤษ" class="form-control input-md" readonly>
+	          </div>
+	          <div class="clearfix"></div>
+	        </div>
+
+	
+	
+	        <!-- Select Basic -->
+	        <div class="form-group">
+  		        <label class="col-md-4 text-left" for="ITMXDisplayNameL">Display Name</label>
+		          <div class="col-md-4">
+		            <select id="ITMXDisplayNameL" name="ITMXDisplayNameL" class="form-control">
+				        <option value="">--- PLEASE SELECT --</option>
+				        <option value="English">English</option>
+		      	        <option value="Thai">Thai</option>
+		            </select>
+		          </div>
+		          <div class="clearfix"></div>
+	        </div>
+	
+
+	        <!-- Text input-->
+	        <div class="form-group">
+	          <label class="col-md-4 text-left" for="ITMXDisplayName"></label>
+	          <div class="col-md-4">
+	  	        <input id="ITMXDisplayName" name="ITMXDisplayName" type="text" class="form-control input-md" readonly>
+	          </div>
+
+	        </div>
+	        <div class="clearfix"></div>
+	
+
+	        <!-- Button -->
+	        <div class="form-group">
+	          <label class="col-md-4 text-left" for="singlebutton"></label>
+	          <div class="col-md-4">
+	  	        <button id="senddata" name="senddata" class="btn btn-primary" type="submit">ส่งข้อมูล</button>
+	          </div>
+	        </div>
+     }
+	    </fieldset>
+	    </div>
+        }
+
+    <script type="text/javascript">
+        
+        
+	</script>
+    }
+    
+    @section scripts
+    {
+    <script type="text/javascript">
+
+     $('#form1').submit(function(){
+         var err = [];
+         var i = 0;
+         var msg = '';
+         if ($('#AcctNumber').val() == "") { err[i] = "AcctNumber - กรุณากรอกข้อมูล"; i++; }
+         if (isNaN($('#AcctNumber').val())) { err[i] = "AcctNumber - กรุณากรอกข้อมูลเฉพาะตัวเลข"; i++ }
+
+         if (err.length > 0) {
+             for (var i = 0, errorLength = err.length; i < errorLength; i++) {
+                 msg += err[i] + '\n';
+             }
+             alert(msg);
+             return false;
+         }
+     });
+     /*
+     $('#form2').submit(function(){
+        	var err = [];
+        	var i = 0;
+        	var msg = '';
+        	if($('#ITMXDisplayName').val() == ""){ err[i] = "ITMXDisplayName - กรุณากรอกข้อมูล" ; i++;}
+        	if($('#ITMXProxyValue').val() == ""){ err[i] = "ITMXProxyValue - กรุณากรอกข้อมูล" ;i++}
+        	if($('#ITMXAcctName').val() == ""){ err[i] = "ITMXAcctName - กรุณากรอกข้อมูล" ;i++}
+        	if($('input[name=AcctHolder]:checked').val() == "Person"){
+        		if($('#ITMXFirstName').val() == ""){ err[i] = "ITMXFirstName - กรุณากรอกข้อมูล" ;i++}
+        		if($('#ITMXLastName').val() == ""){ err[i] = "ITMXLastName - กรุณากรอกข้อมูล" ;i++}
+        	}
+            if ($('input[name=AcctHolder]:checked').val() == "Business") {
+        		if($('#ITMXBusinessName').val() == ""){ err[i] = "ITMXBusinessName - กรุณากรอกข้อมูล" ;i++}
+        	}
+	        if (err.length > 0) {
+	            for (var i = 0, errorLength = err.length; i < errorLength; i++) {
+	                msg += err[i] + '\n';
+
+	            }
+                alert(msg);
+                return false;
+	        }
+            
+        });
+        */
+    </script>
+    }
+    

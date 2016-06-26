@@ -1,0 +1,17 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Redirect</title>
+</head>
+<body>
+    <div>
+        <a href="/register" target="_blank"> open</a>
+    </div>
+</body>
+</html>

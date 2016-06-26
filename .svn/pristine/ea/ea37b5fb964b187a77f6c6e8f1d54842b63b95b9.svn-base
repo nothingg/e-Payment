@@ -1,0 +1,52 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace AnyID.Models
+{
+    public class RegisterModel
+    {
+        public string AcctNumber { get; set; }
+
+        //public static string HaveAcctJoint()
+        //{ 
+            
+        //}
+
+        public static string GetFrezDesc (string FrezCode)
+        {
+            switch (FrezCode)
+            {
+                case "C":
+                    return "อายัตห้ามฝาก ห้ามถอน";
+                    break;
+                case "D":
+                    return "อายัตห้ามถอน";
+                    break;
+                case "T":
+                    return "อายัตห้ามถอน";
+                    break;
+                default:
+                    return "";
+                    break;
+            }
+        }
+
+        public static string GetAcctStatusDesc(string AcctStatus)
+        {
+            switch (AcctStatus)
+            {
+                case "A":
+                    return "Active";
+                    break;
+                case "D":
+                    return "Dormant";
+                    break;
+                default:
+                    return "";
+                    break;
+            }
+        }
+    }
+}

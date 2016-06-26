@@ -1,0 +1,82 @@
+﻿@model IEnumerable<AnyID.Models.ANYID_DATA_CBS>
+
+@{
+    ViewBag.Title = "Index2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index2</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ACCT_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SSN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CUST_FIRST_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CUST_MIDDLE_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CUST_LAST_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.STRFIELD6)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MAIDENNAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PREFERREDNAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CELLNO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ACCT_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SSN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CUST_FIRST_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CUST_MIDDLE_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CUST_LAST_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.STRFIELD6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MAIDENNAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PREFERREDNAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CELLNO)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FORACID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FORACID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FORACID })
+        </td>
+    </tr>
+}
+
+</table>

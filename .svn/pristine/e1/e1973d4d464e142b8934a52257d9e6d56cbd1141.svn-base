@@ -1,0 +1,125 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using AnyID.Models;
+using System.Data.Entity.Core.Objects;
+using System.Globalization;
+using System.Configuration;
+using System.Data;
+using Newtonsoft.Json;
+
+namespace AnyID.Controllers
+{
+    public class RegisterController : Controller
+    {
+        private RegisterModel RegisterModel;
+        //
+        // GET: /Register/
+        [HttpGet]
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Index(RegisterModel Input)
+        {
+            OracleContext db = new OracleContext();
+            var Getrs = db.ANYID_GET_DATA_CBS(Input.AcctNumber);
+            List<ANYID_DATA_CBS> rs = Getrs.ToList() ;
+            ANYID_DATA_CBS rsOne = rs.FirstOrDefault();
+
+            if (rsOne != null) 
+            {
+                ViewBag.HaveJoint = (rsOne.COUNT_JOINT > 1) ? "มี" : "ไม่มี";
+                ViewBag.FrezDesc = RegisterModel.GetFrezDesc(rsOne.FREZ_CODE.ToString());
+                ViewBag.AcctStatusDormant = RegisterModel.GetAcctStatusDesc(rsOne.ACCT_STATUS_DORMANT.ToString());
+                ViewBag.AcctClsFlg = rsOne.ACCT_CLS_FLG.ToString();
+
+                rsOne = RegisterModel.CovertNameCustomerTo32Char(rsOne);
+
+                var GetMobile = db.ANYID_GET_MOBILE_CBS(rsOne.ACCOUNTID.ToString());
+
+                List<ANYID_MOBILE_CBS> rsListMobile = GetMobile.ToList();
+                foreach (ANYID_MOBILE_CBS row in rsListMobile)
+                {
+                    switch (row.ADDRESSCATEGORY.ToString())
+                    {
+                        case "Home":
+                            ViewBag.HomeMobile = (string.IsNullOrEmpty(row.CELLNO)) ? "" : row.CELLNO.Replace("-", "").ToString();
+                            break;
+                        case "Work":
+                            ViewBag.WorkMobile = (string.IsNullOrEmpty(row.CELLNO)) ? "" : row.CELLNO.Replace("-", "").ToString();
+                            break;
+                        case "Mailing":
+                            ViewBag.Mailing = (string.IsNullOrEmpty(row.CELLNO)) ? "" : row.CELLNO.Replace("-", "").ToString();
+                            break;
+                    }
+                }
+            }
+
+            /*** Log ***/
+            RegisterModel.InsertLogs(rsOne);
+
+            ViewBag.AccountNumber = Input.AcctNumber;
+            return View("Index", rsOne);
+        }
+
+        [HttpPost]
+        public ActionResult InsertNewAccount()
+        {
+            ANYID_DATA_ITMX item = new ANYID_DATA_ITMX();
+            item.PROXY_TYPE = Request.Form["ITMXProxyType"];
+            item.PROXY_VALUE = (item.PROXY_TYPE == "MSISDN") ? "+66" + Request.Form["ITMXProxyValue"].Substring(1, Request.Form["ITMXProxyValue"].Length - 1) : Request.Form["ITMXProxyValue"];
+            item.ACCOUNT_TYPE = "DUMMY";
+            item.ACCOUNT_NUMBER = Request.Form["AccountNumber"]; // Bank Code + เลขบัญชี Dummy
+            item.ACCOUNT_NAME = Request.Form["ITMXAcctName"];
+            item.DISPLAY_NAME = Request.Form["ITMXDisplayName"];
+            item.PERSON_FIRSTNAME = Request.Form["ITMXFirstName"];
+            item.PERSON_LASTNAME = Request.Form["ITMXSecondName"];
+            item.PERSON_LASTNAME = Request.Form["ITMXLastName"];
+            item.BUSINESS_NAME = Request.Form["ITMXBusinessName"];
+            IFormatProvider dateFormat = new CultureInfo("en-US").DateTimeFormat;
+            item.BUSINESS_REGISTERED_DATE = Convert.ToDateTime("23-06-2016", dateFormat);
+            item.CREATED_DATE = DateTime.Now;
+            item.CREATED_USER = ""; /* ดึงจาก Session*/
+            item.REGISTRATION_STATUS = "Active";
+
+            OracleContext db = new OracleContext();
+            var L2EQuery = from st in db.ANYID_DATA_ITMX
+                           where st.PROXY_TYPE == item.PROXY_TYPE && st.PROXY_VALUE == item.PROXY_VALUE
+                           select st;
+            int CountHaveData = L2EQuery.Count();
+            if (CountHaveData == 0)
+            {
+                db.AddToANYID_DATA_ITMX(item);
+                db.SaveChanges();
+
+                TempData["Notify"] = "true";
+                TempData["Class"] = "alert-success";
+                TempData["Message"] = "บันทึกข้อมูลเรียบร้อย";
+            }
+            else 
+            {
+                TempData["Notify"] = "true";
+                TempData["Class"] = "alert-danger";
+                TempData["Message"] = "มีข้อมูลอยู่แล้ว";
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        public void ListLogs()
+        {
+            OracleContext db = new OracleContext();
+            ANYID_LOGS row =  db.ANYID_LOGS.ToList().FirstOrDefault();
+            ANYID_DATA_CBS rsOne = JsonConvert.DeserializeObject<ANYID_DATA_CBS>(row.LOG_DATA);
+
+        }
+
+        
+
+    }
+}

@@ -1,0 +1,162 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Data;
+using System.Data.OracleClient;
+using System.Configuration;
+using Newtonsoft.Json;
+using System.Collections;
+using AnyID.Models;
+using AnyID.Class;
+
+namespace AnyID.Models
+{
+    public class RegisterModel
+    {
+        public string AcctNumber { get; set; }
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+        public static bool ChkFormatAcct(string foracid)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(foracid) && foracid.Length == 12)
+                {
+                    int[] acct = new int[13];
+                    for (int i = 0; i < 12; i++)
+                    {
+                        acct[i] = Convert.ToInt32(foracid.Substring(i, 1));
+                    }
+
+                    int digit = ((acct[0] * 5) + (acct[1] * 4) + (acct[2] * 3) + (acct[3] * 2) + (acct[4] * 7) + (acct[5] * 6) + (acct[6] * 6) + (acct[7] * 5)
+                            + (acct[8] * 4) + (acct[9] * 3) + (acct[10] * 2)) % 10;
+
+
+
+                    if (digit != 0)
+                    {
+                        if ((10 - digit) == acct[11]) { return true; } else { return false; }
+                    }
+                    else
+                    {
+                        if (digit == acct[11]) { return true; } else { return false; }
+                    }
+                }
+                else { return false; }
+
+            }
+            catch (Exception e)
+            {
+                log.Error(CommonHelper.ErrMsg(e));
+                return false;
+            }
+        }
+
+        public static ANYID_DATA_CBS CovertNameCustomerTo32Char(ANYID_DATA_CBS item)
+        {
+
+            item.CUST_FIRST_NAME = (string.IsNullOrEmpty(item.CUST_FIRST_NAME) || item.CUST_FIRST_NAME.Length <= 32) ? item.CUST_FIRST_NAME : item.CUST_FIRST_NAME.Substring(0, 32);
+            item.CUST_MIDDLE_NAME = (string.IsNullOrEmpty(item.CUST_MIDDLE_NAME) || item.CUST_MIDDLE_NAME.Length <= 32) ? item.CUST_MIDDLE_NAME : item.CUST_MIDDLE_NAME.Substring(0, 32);
+            item.CUST_LAST_NAME = (string.IsNullOrEmpty(item.CUST_LAST_NAME) || item.CUST_LAST_NAME.Length <= 32) ? item.CUST_LAST_NAME : item.CUST_LAST_NAME.Substring(0, 32);
+
+            item.STRFIELD6 = (string.IsNullOrEmpty(item.STRFIELD6) || item.STRFIELD6.Length <= 32) ? item.STRFIELD6 : item.STRFIELD6.Substring(0, 32);
+            item.MAIDENNAME = (string.IsNullOrEmpty(item.MAIDENNAME) || item.MAIDENNAME.Length <= 32) ? item.CUST_MIDDLE_NAME : item.CUST_MIDDLE_NAME.Substring(0, 32);
+            item.PREFERREDNAME = (string.IsNullOrEmpty(item.PREFERREDNAME) || item.PREFERREDNAME.Length <= 32) ? item.PREFERREDNAME : item.PREFERREDNAME.Substring(0, 32);
+
+            return item;
+        }
+        
+        public static string GetFrezDesc (string FrezCode)
+        {
+            switch (FrezCode)
+            {
+                case "C":
+                    return "อายัตห้ามฝาก ห้ามถอน";
+                    break;
+                case "D":
+                    return "อายัตห้ามถอน";
+                    break;
+                case "T":
+                    return "อายัตห้ามถอน";
+                    break;
+                default:
+                    return "";
+                    break;
+            }
+        }
+
+        public static string GetAcctStatusDesc(string AcctStatus)
+        {
+            switch (AcctStatus)
+            {
+                case "A":
+                    return "Active";
+                    break;
+                case "D":
+                    return "Dormant";
+                    break;
+                default:
+                    return "";
+                    break;
+            }
+        }
+
+        public static Hashtable GetListMobile(List<ANYID_MOBILE_CBS> rsListMobile) 
+        {
+            Hashtable ht = new Hashtable();
+            try 
+            {
+                foreach (ANYID_MOBILE_CBS row in rsListMobile)
+                {
+                    switch (row.ADDRESSCATEGORY.ToString())
+                    {
+                        case "Home":
+                            string HomeMobile = (string.IsNullOrEmpty(row.CELLNO)) ? "" : row.CELLNO.Replace("-", "").ToString();
+                            ht.Add("HomeMobile", HomeMobile);
+                            break;
+                        case "Work":
+                            string WorkMobile = (string.IsNullOrEmpty(row.CELLNO)) ? "" : row.CELLNO.Replace("-", "").ToString();
+                            ht.Add("WorkMobile", WorkMobile);
+                            break;
+                        case "Mailing":
+                            string MailingMobile = (string.IsNullOrEmpty(row.CELLNO)) ? "" : row.CELLNO.Replace("-", "").ToString();
+                            ht.Add("MailingMobile", MailingMobile);
+                            break;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                log.Error(CommonHelper.ErrMsg(e));
+            }
+            
+            return ht;
+        }
+
+        public static bool InsertLogs(ANYID_DATA_CBS rsOne)
+        {
+            try
+            {
+                ANYID_LOGS rsLog = new ANYID_LOGS();
+                rsLog.LOG_ACTION = "SEARCH";
+                rsLog.CREATED_DATE = DateTime.Now;
+                rsLog.CREATED_USER = Convert.ToString(HttpContext.Current.Session["UserID"]);  /* ดึงจาก Session*/
+                rsLog.LOG_DATA = JsonConvert.SerializeObject(rsOne);
+
+                using (OracleContext db = new OracleContext())
+                {
+                    db.AddToANYID_LOGS(rsLog);
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                log.Error(CommonHelper.ErrMsg(e));
+                return false;
+            }
+            
+        }
+    }
+}
