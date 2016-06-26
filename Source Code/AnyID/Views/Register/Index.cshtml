@@ -139,15 +139,16 @@
 		  <div class="clearfix" ></div>
 		</div>
 
-		<!-- Text input-->
+        <!-- Text input-->
 		<div class="form-group">
-		  <label class="col-md-4 text-left" for="AcctStatus">สถานะบัญชี (ไม่เคลื่อนไหว)</label>  
+		  <label class="col-md-4 text-left" for="AcctStatus">สถานะบัญชี (เปิด / ปิด)</label>  
 		  <div class="col-md-5">
-		  	<input id="AcctStatus" name="AcctStatus" type="text" placeholder="" class="form-control input-md" value="@ViewBag.AcctStatusDormant" readonly>
+            <input id="AcctCls" name="AcctFrez" type="text" placeholder="" class="form-control input-md" value="@ViewBag.AcctClsFlg" readonly>
 		  </div>
 		  <div class="clearfix" ></div>
 		</div>
 
+        
         <!-- Text input-->
 		<div class="form-group">
 		  <label class="col-md-4 text-left" for="AcctStatus">สถานะบัญชี (อายัด)</label>  
@@ -157,14 +158,17 @@
 		  <div class="clearfix" ></div>
 		</div>
 
-        <!-- Text input-->
+		<!-- Text input-->
 		<div class="form-group">
-		  <label class="col-md-4 text-left" for="AcctStatus">สถานะบัญชี (เปิด / ปิด)</label>  
+		  <label class="col-md-4 text-left" for="AcctStatus">สถานะบัญชี (ไม่เคลื่อนไหว)</label>  
 		  <div class="col-md-5">
-            <input id="AcctCls" name="AcctFrez" type="text" placeholder="" class="form-control input-md" value="@ViewBag.AcctClsFlg" readonly>
+		  	<input id="AcctStatus" name="AcctStatus" type="text" placeholder="" class="form-control input-md" value="@ViewBag.AcctStatusDormant" readonly>
 		  </div>
 		  <div class="clearfix" ></div>
 		</div>
+
+
+        
 
 		<!-- Text input-->
 		<div class="form-group">

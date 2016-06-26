@@ -37,3 +37,4 @@ E:\my_work\dotnet\e-Payment\Source Code\AnyID\obj\Debug\AnyID.Models.Constants.r
 E:\my_work\dotnet\e-Payment\Source Code\AnyID\obj\Debug\AnyID.csproj.GenerateResource.Cache
 E:\my_work\dotnet\e-Payment\Source Code\AnyID\obj\Debug\AnyID.dll
 E:\my_work\dotnet\e-Payment\Source Code\AnyID\obj\Debug\AnyID.pdb
+E:\my_work\dotnet\e-Payment\Source Code\AnyID\obj\Debug\AnyID.csprojResolveAssemblyReference.cache
